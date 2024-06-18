@@ -1,0 +1,192 @@
+.d-flex {
+    width: 330px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid white;
+
+}
+
+.nav-item {
+    margin-left: 50px;
+    align-items: center;
+    display: flex;
+}
+
+.nav-link {
+    color: black;
+
+}
+
+a {
+    color: black;
+}
+
+input {
+    border: none;
+    width: 770px;
+    border-radius: 10px;
+    outline: none;
+}
+
+.fa-solid, .fas {
+    margin-right: 10px;
+}
+
+
+main .dropdown {
+    display: grid;
+    justify-content: space-around;
+    text-align: center;
+
+}
+
+ul {
+    display: flex;
+}
+
+
+.classi {
+    display: flex;
+}
+
+.bg-body-tertiary {
+    --bs-bg-opacity: 1;
+    background-color: #D94D4D !important;
+}
+
+.d-flex {
+    width: 330px;
+    background-color: #ffffff;
+    border-radius: 90px;
+    border: 2px solid #D94D4D;
+}
+
+header button {
+
+    background-color: white !important;
+
+
+}
+
+.btn-outline-success {
+    --bs-btn-color: #198754;
+    --bs-btn-border-color: #ffffff;
+    --bs-btn-hover-color: #198754;
+    --bs-btn-hover-bg: #198754;
+    --bs-btn-hover-border-color: #198754;
+    --bs-btn-focus-shadow-rgb: 25, 135, 84;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #198754;
+    --bs-btn-active-border-color: #198754;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #198754;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #198754;
+    --bs-gradient: none;
+    border-radius: 50px;
+}
+
+.bg-body-tertiary {
+    --bs-bg-opacity: 1;
+    background-color: #D94D4D !important;
+}
+
+header i {
+    color: white;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+    color: rgb(255 255 255);
+}
+
+.navbar-brand {
+
+    color: white;
+
+}
+
+.nav-link {
+    color: white;
+
+}
+
+main{
+    text-align: center;
+}
+
+main i{
+    font-size: 90px;
+    color: #D94D4D;
+}
+
+main a{
+    text-decoration: none;
+}
+
+.uno {
+    display: flex;
+    align-items: baseline;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.dos {
+    display: flex;
+    align-items: baseline;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+main p {
+
+    font-size: 30px;
+    text-align: center;
+}
+
+
+footer {
+    display: grid;
+    justify-content: space-around;
+    height: 58px;
+    align-items: center;
+    color: white;
+    background-color: #D94D4D;
+}
+
+
+
+
+p {
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+    height: 58px;
+
+}
+
+
+.voltar {
+    width: 80%;
+    margin-left: 2%;
+}
+
+.voltar i {
+    color: black;
+}
+
+header img {
+    width: 80px;
+    margin-right: 30px;
+    background-color: white;
+    border-radius: 50px;
+}
+
+.me-2 {
+    border: none;
+    border-radius: 50px;
+}
+
+button i {
+    color: black;
+}

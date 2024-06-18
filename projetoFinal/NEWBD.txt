@@ -1,0 +1,138 @@
+CREATE DATABASE ProjetoFinal;
+
+USE ProjetoFinal;
+
+CREATE TABLE Usuario (
+idUsuario INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(255) NOT NULL,
+senha VARCHAR(255) NOT NULL,
+email VARCHAR(255) NOT NULL,
+telefone VARCHAR(20) NOT NULL,
+cpf VARCHAR(14) NOT NULL,
+unique(email, cpf, telefone)
+);
+
+CREATE TABLE categorias (
+  idCategoria INT AUTO_INCREMENT PRIMARY KEY,
+  nome varchar(45) DEFAULT NULL
+);
+
+CREATE TABLE Produtos (
+idProdutos INT AUTO_INCREMENT PRIMARY KEY,
+nome VARCHAR(255) NOT NULL,
+imagem longblob,
+categoria int,
+descricao TEXT,
+preco DECIMAL(10, 2) NOT NULL,
+quantidade INT NOT NULL
+);
+
+CREATE TABLE Estoque (
+idEstoque INT AUTO_INCREMENT PRIMARY KEY,
+nome_estoque VARCHAR(255) NOT NULL,
+imagem longblob,
+categoria_estoque VARCHAR(100) NOT NULL,
+preco_estoque DECIMAL(10, 2) NOT NULL,
+quantidade_estoque INT NOT NULL,
+idProdutos int,
+foreign key (idProdutos) references Produtos (idProdutos)
+);
+
+CREATE TABLE Carrinho (
+idCarrinho INT AUTO_INCREMENT PRIMARY KEY,
+nome_carrinho VARCHAR(255) NOT NULL,
+imagem longblob,
+categoria_carrinho VARCHAR(100),
+descricao_carrinho TEXT,
+preco_carrinho DECIMAL(10, 2) NOT NULL,
+quantidade_carrinho INT NOT NULL,
+idProdutos INT,
+idUsuario int,
+foreign key (idProdutos) references Produtos (idProdutos),
+foreign key (idUsuario) references usuario (idUsuario)
+);
+
+CREATE TABLE Estoque_Pedidos (
+    idPedido INT AUTO_INCREMENT PRIMARY KEY,
+    idUsuario INT NOT NULL,
+    idProduto INT NOT NULL,
+    quantidade_pedido INT NOT NULL,
+    preco_unitario DECIMAL(10, 2) NOT NULL,
+    total_pedido DECIMAL(10, 2) NOT NULL,
+    data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario),
+    FOREIGN KEY (idProduto) REFERENCES Produtos(idProdutos)
+);
+
+CREATE TABLE Historico_Compras (
+    idCompra INT AUTO_INCREMENT PRIMARY KEY,
+    idUsuario INT NOT NULL,
+    idProduto INT NOT NULL,
+    quantidade_comprada INT NOT NULL,
+    preco_unitario DECIMAL(10, 2) NOT NULL,
+    total_pago DECIMAL(10, 2) NOT NULL,
+    data_compra TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario),
+    FOREIGN KEY (idProduto) REFERENCES Produtos(idProdutos)
+);
+
+CREATE TABLE Enderecos (
+    idEndereco INT AUTO_INCREMENT PRIMARY KEY,
+    idUsuario int not null,
+    rua VARCHAR(255) NOT NULL,
+    numero VARCHAR(255)  NOT NULL,
+    complemento VARCHAR(255),
+    cidade VARCHAR(100) NOT NULL,
+    estado VARCHAR(100) NOT NULL,
+    cep VARCHAR(10) NOT NULL,
+FOREIGN KEY (idUsuario) REFERENCES Usuario(idUsuario)
+);
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+DELIMITER $$
+CREATE TRIGGER tirar_quantidade_estoque
+AFTER INSERT ON Carrinho
+FOR EACH ROW
+BEGIN
+UPDATE Estoque
+SET quantidade_estoque = quantidade_estoque - NEW.quantidade_carrinho
+WHERE nome_estoque = NEW.nome_carrinho;
+END$$
+DELIMITER ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select * from usuario;
+
+
+select * from enderecos;
+
+
+select * from carrinho;
+
+
+
