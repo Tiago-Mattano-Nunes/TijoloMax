@@ -88,6 +88,10 @@
         <servlet-name>EstoqueController</servlet-name>
         <servlet-class>controller.EstoqueController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VendasController</servlet-name>
+        <servlet-class>controller.VendasController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>IndexController</servlet-name>
         <url-pattern>/Index</url-pattern>
@@ -163,6 +167,10 @@
     <servlet-mapping>
         <servlet-name>EstoqueController</servlet-name>
         <url-pattern>/Estoque</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VendasController</servlet-name>
+        <url-pattern>/Vendas</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

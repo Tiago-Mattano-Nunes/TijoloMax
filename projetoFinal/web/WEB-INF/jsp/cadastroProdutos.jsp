@@ -40,10 +40,7 @@
 
                                 <a class="navbar-brand" aria-current="page" href="./Sobrenos"><i class="fa-solid fa-glasses"></i>Sobre Nós</a>
                             </li>
-                            <li class="nav-item">
-
-                                <a class="navbar-brand" href="./Cadastro"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
-                            </li>
+                           
                             <li class="nav-item dropdown">
 
                                 <a class="navbar-brand dropdown-toggle" href="#" role="button"
@@ -51,13 +48,13 @@
                                     <i class="fa-solid fa-hand-point-up"></i>Departamentos
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="./Categoria?id=1">Frios</a></li>
-                                    <li><a class="dropdown-item" href="./Categoria?id=2">Carnes</a></li>
-                                    <li><a class="dropdown-item" href="./Categoria?id=3">Bebidas</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-
+                                    <li><div>                      
+                                            <c:forEach items="${categoria}" var="catG"> 
+                                                <a  href="./Categoria?id=${catG.idCategoria}"> 
+                                                    <option value="${catG.idCategoria}">${catG.nome}</option>
+                                                </a>
+                                            </c:forEach>
+                                        </div></li>                              
                                 </ul>
                             </li>
 
@@ -96,7 +93,7 @@
 
 
                     <h2>Imagem:</h2>
-                    <input type="file" name="imagem" id="imagem">
+                    <input type="file" name="imagem" id="imagem" required>
 
                     <h2>Nome:</h2>
                     <input type="text" name="nome">
@@ -106,7 +103,7 @@
                     <h2>Categoria:</h2>
 
                     <div>                      
-                        <select class="custom-select" id="inputGroupSelect01" name="categoria">
+                        <select class="custom-select" id="inputGroupSelect01" name="categoria" required>
                             <c:forEach items="${categoria}" var="catG">
                                 <option value="${catG.idCategoria}">${catG.nome}</option>
                             </c:forEach>
@@ -127,7 +124,8 @@
 
 
         <footer>
-            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️</p>
+            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️ / email: dedentep1@gmail.com</p>
+
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

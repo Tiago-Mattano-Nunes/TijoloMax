@@ -16,9 +16,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Dao.CadastroDAO;
 import model.Dao.CarrinhoDAO;
+import model.Dao.CatDAO;
 import model.Dao.EnderecosDAO;
 import model.bean.Cadastro;
 import model.bean.Carrinho;
+import model.bean.Categorias;
 import model.bean.Enderecos;
 
 /**
@@ -38,42 +40,40 @@ public class PagamentoController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-      
 
-            Cookie[] cookies3 = request.getCookies();
-            int idUsuario = 0; // Valor padrão, caso não seja possível extrair o ID do usuário do cookie
-            for (Cookie cookie : cookies3) {
-                if (cookie.getName().equals("loginManter")) {
-                    String cookieValue = cookie.getValue();
-                    try {
-                        idUsuario = Integer.parseInt(cookieValue);
-                    } catch (NumberFormatException e) {
-                        // Em caso de falha na conversão, o idUsuario permanecerá como -1
-                        e.printStackTrace(); // ou outro tratamento de erro, se desejado
-                    }
-                    break; // Encerra o loop assim que encontrar o cookie desejado
+        CatDAO categoria = new CatDAO();
+        List<Categorias> categorias = categoria.leia();
+        request.setAttribute("categoria", categorias);
+
+        Cookie[] cookies3 = request.getCookies();
+        int idUsuario = 0; // Valor padrão, caso não seja possível extrair o ID do usuário do cookie
+        for (Cookie cookie : cookies3) {
+            if (cookie.getName().equals("loginManter")) {
+                String cookieValue = cookie.getValue();
+                try {
+                    idUsuario = Integer.parseInt(cookieValue);
+                } catch (NumberFormatException e) {
+                    // Em caso de falha na conversão, o idUsuario permanecerá como -1
+                    e.printStackTrace(); // ou outro tratamento de erro, se desejado
                 }
+                break; // Encerra o loop assim que encontrar o cookie desejado
             }
-            
-            
+        }
 
-            // Verifica se o idUsuario foi definido com sucesso
-            if (idUsuario != -1) {
-                // Use o idUsuario para listar o carrinho
-                CarrinhoDAO carrinhoDAO = new CarrinhoDAO();
-                List<Carrinho> carrinhos = carrinhoDAO.listar(idUsuario);
-                request.setAttribute("carrinhos", carrinhos);
-                float totalPreco = produtoDao.calcular(idUsuario);
-                request.setAttribute("totalPreco", totalPreco);
-            } else {
-                PrintWriter out = response.getWriter();
-                out.println("<script type=\"text/javascript\">");
-                out.println("alert('Faça login .');");
-                out.println("</script>");
-            }
-
-        
+        // Verifica se o idUsuario foi definido com sucesso
+        if (idUsuario != -1) {
+            // Use o idUsuario para listar o carrinho
+            CarrinhoDAO carrinhoDAO = new CarrinhoDAO();
+            List<Carrinho> carrinhos = carrinhoDAO.listar(idUsuario);
+            request.setAttribute("carrinhos", carrinhos);
+            float totalPreco = produtoDao.calcular(idUsuario);
+            request.setAttribute("totalPreco", totalPreco);
+        } else {
+            PrintWriter out = response.getWriter();
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Faça login .');");
+            out.println("</script>");
+        }
 
         Cadastro cadastro = new Cadastro();
         CadastroDAO cadastrodao = new CadastroDAO();
@@ -86,7 +86,7 @@ public class PagamentoController extends HttpServlet {
                 request.setAttribute("usuario", cadastro);
             }
         }
-       
+
         /*
         if (endereco == null || endereco.getIdEndereco() <= 0) {
             PrintWriter sout = response.getWriter();

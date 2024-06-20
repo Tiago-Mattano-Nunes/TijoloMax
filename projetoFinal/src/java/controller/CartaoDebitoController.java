@@ -15,8 +15,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Dao.CadastroDAO;
+import model.Dao.CatDAO;
 import model.Dao.EnderecosDAO;
 import model.bean.Cadastro;
+import model.bean.Categorias;
 import model.bean.Enderecos;
 
 /**
@@ -37,6 +39,10 @@ public class CartaoDebitoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        CatDAO categoria = new CatDAO();
+        List<Categorias> categorias = categoria.leia();
+        request.setAttribute("categoria", categorias);
+
         Cadastro cadastro = new Cadastro();
         CadastroDAO cadastrodao = new CadastroDAO();
         Cookie[] cookies = request.getCookies();
@@ -47,7 +53,7 @@ public class CartaoDebitoController extends HttpServlet {
                 request.setAttribute("usuario", cadastro);
             }
         }
-        
+
         int idUsuario = -1; // Valor padrão, caso não seja possível extrair o ID do usuário do cookie
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("loginManter")) {
@@ -65,13 +71,11 @@ public class CartaoDebitoController extends HttpServlet {
         // Verifica se o idUsuario foi definido com sucesso
         if (idUsuario != -1) {
             // Use o idUsuario para listar o carrinho
-           
 
             EnderecosDAO enderecosdao = new EnderecosDAO();
             List<Enderecos> endereco = enderecosdao.listarEndereco(idUsuario);
             request.setAttribute("enderecos", endereco);
 
-          
         } else {
             PrintWriter out = response.getWriter();
             out.println("<script type=\"text/javascript\">");

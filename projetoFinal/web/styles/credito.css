@@ -22,7 +22,7 @@ a {
     color: black;
 }
 
-input {
+header input {
     border: none;
     width: 770px;
     border-radius: 10px;
@@ -40,6 +40,15 @@ main .dropdown{
     text-align: center;
 
 }
+main input {
+    width: 300px;
+    height: 40px;
+    margin-top: 10px;
+    border: none;
+    transition: all 0.3s ease-in-out 0.1s;
+    border-bottom: 2px solid black;
+}
+
 ul{
     display: flex;
 }
@@ -179,18 +188,18 @@ header img{
     border-radius: 50px;
 }
 
-    
-main {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 320px;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
 
+.btn-comprar {
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+}
 
 main h3:first-of-type {
     margin-bottom: 20px;
@@ -198,41 +207,23 @@ main h3:first-of-type {
     color: #333333;
 }
 
+.enderecos {
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
+}
 
-.campos > div {
-    margin-bottom: 15px;
-    text-align: left;
+.enderecos h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
 }
 
 
-.campos h3 {
-    margin: 0 0 5px 0;
-    font-size: 16px;
-    color: #333333;
-}
 
-
-.campos input[type="text"],
-.campos input[type="password"] {
-    width: calc(100% - 16px); 
-    padding: 8px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-
-.campos input[type="text"]:focus,
-.campos input[type="password"]:focus {
-    border-color: #007bff;
-    outline: none;
-}
-
-
-.campos input[type="text"],
-.campos input[type="password"] {
-    box-sizing: border-box;
-}
 
 
 main button {

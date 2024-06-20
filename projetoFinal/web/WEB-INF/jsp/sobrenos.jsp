@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -35,10 +36,7 @@
 
                                 <a class="navbar-brand" aria-current="page" href="./Sobrenos"><i class="fa-solid fa-glasses"></i>Sobre Nós</a>
                             </li>
-                            <li class="nav-item">
-
-                                <a class="navbar-brand" href="./Cadastro"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
-                            </li>
+                           
                             <li class="nav-item dropdown">
 
                                 <a class="navbar-brand dropdown-toggle" href="#" role="button"
@@ -46,13 +44,13 @@
                                     <i class="fa-solid fa-hand-point-up"></i>Departamentos
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="./Categoria?id=1">Frios</a></li>
-                                    <li><a class="dropdown-item" href="./Categoria?id=2">Carnes</a></li>
-                                    <li><a class="dropdown-item" href="./Categoria?id=3">Bebidas</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-
+                                    <li><div>                      
+                                            <c:forEach items="${categoria}" var="catG"> 
+                                                <a  href="./Categoria?id=${catG.idCategoria}"> 
+                                                    <option value="${catG.idCategoria}">${catG.nome}</option>
+                                                </a>
+                                            </c:forEach>
+                                        </div></li>                              
                                 </ul>
 
                             </li>
@@ -98,7 +96,8 @@
         </main>
 
         <footer>
-            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️</p>
+            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️ / email: dedentep1@gmail.com</p>
+
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

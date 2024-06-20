@@ -21,10 +21,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import model.Dao.CadastroDAO;
 import model.Dao.CarrinhoDAO;
+import model.Dao.CatDAO;
 import model.Dao.EnderecosDAO;
 import model.Dao.ProdutosDAO;
 import model.bean.Cadastro;
 import model.bean.Carrinho;
+import model.bean.Categorias;
 import model.bean.Enderecos;
 import model.bean.Produtos;
 
@@ -53,6 +55,10 @@ public class CarrinhoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        CatDAO categoria = new CatDAO();
+        List<Categorias> categorias = categoria.leia();
+        request.setAttribute("categoria", categorias);
+
         Cadastro cadastro = new Cadastro();
         CadastroDAO cadastrodao = new CadastroDAO();
         Cookie[] cookies = request.getCookies();
@@ -64,8 +70,6 @@ public class CarrinhoController extends HttpServlet {
                 request.setAttribute("usuario", cadastro);
             }
         }
-
-       
 
         int idUsuario = 0; // Valor padrão, caso não seja possível extrair o ID do usuário do cookie
         for (Cookie cookie : cookies) {
@@ -89,11 +93,9 @@ public class CarrinhoController extends HttpServlet {
             request.setAttribute("carrinhos", carrinhos);
             float totalPreco = produtoDao.calcular(idUsuario);
             request.setAttribute("totalPreco", totalPreco);
-            
-           
+
             List<Enderecos> objProduto = objProdutoDao.listarEndereco(idUsuario);
             request.setAttribute("enderecos", objProduto);
-        
 
         } else {
             PrintWriter out = response.getWriter();
@@ -161,14 +163,12 @@ public class CarrinhoController extends HttpServlet {
         objProduto.setEstado(request.getParameter("estado"));
         objProduto.setComplemento(request.getParameter("complemento"));
         objProduto.setIdUsuario(Integer.parseInt(request.getParameter("id")));
-       
 
-       
         //Cookie enderecoCookie = new Cookie("enderecoManter", Integer.toString(idEndereco));
         //response.addCookie(enderecoCookie);
         objProdutoDao.create(objProduto);
         //response.sendRedirect("./Carrinho?id=" + Integer.parseInt(request.getParameter("id")));
-        response.sendRedirect("./Pagamento");
+        response.sendRedirect("./Agradecimento");
 
     }
 

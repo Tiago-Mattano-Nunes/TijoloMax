@@ -40,56 +40,15 @@ main {
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    margin-bottom: 700px;
-}
-.containerr{
-    padding: 0;
-    width: 100%;
-    height: 80vh;
-    margin-top: 20px;
-    overflow: scroll;
-
-
-}
-.containerr img{
-    width: 130px;
-    height: 130px;
-    margin-right: 10px;
-}
-.containerr .produto{
-    width: 1119px;
-    width: 400px;
-    display: flex;
-    flex-direction: row;
-    border-bottom: 2px solid rgb(43, 43, 43);
-
 }
 
-.containerr .produto h2{
-    margin: 0;
-    margin-top: 20px;
-
-}
-.containerr .produto p{
-    margin-top: 55px;
-    margin-bottom: 0;
-    font-size: 35px;
-    color: #459500;
-    margin-left: 100px;
-}
 
 .classi{
     display: flex;
 }
 
 
-.numero {
-    display: flex;
-    justify-content: flex-end;
-    align-content: space-around;
-    flex-direction: column;
-    align-items: baseline;
-}
+
 main .dropdown{
     display: grid;
     justify-content: space-around;
@@ -197,6 +156,14 @@ main button {
     justify-content: center;
     width: 100%;
 }
+
+main .container, .container-lg, .container-md, .container-sm, .container-xl {
+     
+        width: 1000px;
+    }
+    main img{
+        width: 100px;
+    }
 
 button:hover {
     background-color: #cc4141;

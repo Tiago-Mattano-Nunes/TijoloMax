@@ -1,10 +1,9 @@
 
 .d-flex {
     width: 330px;
-    background-color: white;
-    border-radius: 10px;
-    border: 2px solid white;
-
+    background-color: #ffffff;
+    border-radius: 90px;
+    border: 2px solid #D94D4D;
 }
 
 .nav-item {
@@ -65,8 +64,8 @@ ul{
 }
 
 .usuario {
-    background-color: #ffffff; /* Fundo branco para cada produto */
-    padding: 15px; /* Espaçamento interno */
+    background-color: #ffffff; 
+    padding: 15px; 
     border-radius: 8px; /* Bordas arredondadas */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
     flex: 1 1 200px; /* Ajuste flexível da largura dos produtos */
@@ -122,12 +121,6 @@ header button{
     border-radius: 50px;
 }
 
-.d-flex {
-    width: 330px;
-    background-color: #ffffff;
-    border-radius: 90px;
-    border: 2px solid #D94D4D;
-}
 
 
 
@@ -175,4 +168,24 @@ header img{
 }
 button i{
     color: black;
+}
+main{
+    margin-bottom: 330px;   
+}
+
+footer {
+    display: grid;
+    justify-content: space-around;
+    height: 58px;
+    align-items: center;
+    color: white;
+    background-color: #D94D4D;
+}
+
+footer p {
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+    height: 58px;
+
 }

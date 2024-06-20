@@ -7,6 +7,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -14,7 +15,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Dao.CadastroDAO;
+import model.Dao.CatDAO;
 import model.bean.Cadastro;
+import model.bean.Categorias;
 
 /**
  *
@@ -32,10 +35,15 @@ public class SobrenosController extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-             throws ServletException, IOException {
+            throws ServletException, IOException {
+
+        CatDAO categoria = new CatDAO();
+        List<Categorias> categorias = categoria.leia();
+        request.setAttribute("categoria", categorias);
+
         String nextPage = "/WEB-INF/jsp/sobrenos.jsp";
-        
-         Cadastro cadastro = new Cadastro();
+
+        Cadastro cadastro = new Cadastro();
         CadastroDAO cadastrodao = new CadastroDAO();
 
         Cookie[] cookies = request.getCookies();
@@ -48,7 +56,7 @@ public class SobrenosController extends HttpServlet {
         }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
         dispatcher.forward(request, response);
-    }  
+    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

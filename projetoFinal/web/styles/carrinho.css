@@ -22,14 +22,7 @@ a {
     color: black;
 }
 
-main input {
-    width: 300px;
-    height: 40px;
-    margin-top: 10px;
-    border: none;
-    transition: all 0.3s ease-in-out 0.1s;
-    border-bottom: 2px solid black;
-}
+
 
 main input:hover {
     background-color: #ffffff;
@@ -64,22 +57,6 @@ main {
 }
 
 
-.enderecos {
-    max-width: 360px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: white;
-    height: 770px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 100px;
-}
-
-.enderecos h2 {
-    margin-top: 0;
-    font-size: 1.5em;
-    color: #333;
-}
 
 .form-group {
     margin-bottom: 15px;
@@ -99,14 +76,13 @@ main {
     font-size: 1em;
 }
 
-.bt-comprar {
+.btnn-comprar {
     width: 100%;
     background-color: black;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 1.2em;
-    cursor: pointer;
     margin-top: 10px;
     text-align: center;
     text-decoration: none;
@@ -156,16 +132,6 @@ main {
         overflow: scroll;
     }
 
-    .enderecos {
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 20px;
-        border-radius: 10px;
-        background-color: white;
-        height: 760px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        margin-bottom: 100px;
-    }
 }
 
 

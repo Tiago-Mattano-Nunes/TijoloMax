@@ -8,7 +8,6 @@ public class Historico_compras {
     private int idUsuario;
     private int idProdutos;
     private String nome;
-    private String categoria;
     private String descricao;
     private float preco;
     private int quantidade;
@@ -17,12 +16,11 @@ public class Historico_compras {
     public Historico_compras() {
     }
 
-    public Historico_compras(int idCompra, int idUsuario, int idProdutos, String nome, String categoria, String descricao, float preco, int quantidade, float total_preco) {
+    public Historico_compras(int idCompra, int idUsuario, int idProdutos, String nome, String descricao, float preco, int quantidade, float total_preco) {
         this.idCompra = idCompra;
         this.idUsuario = idUsuario;
         this.idProdutos = idProdutos;
         this.nome = nome;
-        this.categoria = categoria;
         this.descricao = descricao;
         this.preco = preco;
         this.quantidade = quantidade;
@@ -61,14 +59,6 @@ public class Historico_compras {
         this.nome = nome;
     }
 
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
-    }
-
     public String getDescricao() {
         return descricao;
     }
@@ -100,12 +90,6 @@ public class Historico_compras {
     public void setTotal_preco(float total_preco) {
         this.total_preco = total_preco;
     }
-    
-    
- 
 
    
-    
-    
-
 }

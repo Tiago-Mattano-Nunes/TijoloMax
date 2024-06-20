@@ -7,6 +7,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -14,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Dao.CatDAO;
 import model.Dao.CategoriasDAO;
 import model.bean.Categorias;
 
@@ -26,6 +28,11 @@ public class CadastroCatController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        CatDAO categoria = new CatDAO();
+        List<Categorias> categorias = categoria.leia();
+        request.setAttribute("categoria", categorias);
+
         String nextPage = "/WEB-INF/jsp/cadastroCat.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
         dispatcher.forward(request, response);
@@ -65,23 +72,25 @@ public class CadastroCatController extends HttpServlet {
         }
 
     }
- protected void user(HttpServletRequest request, HttpServletResponse response)
+
+    protected void user(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter sout = response.getWriter();
         categorias.setNome(request.getParameter("nome"));
-        
+
         if (categorias.getNome().trim().equals("")) {
             sout.println("<script type=\"text/javascript\">");
             sout.println("alert('Por favor, preencha todos os campos.');");
             sout.println("window.location.href = './CadastroCat';");
             sout.println("</script>");
         } else {
-         
+
             categoriasDAO.cat(categorias);
             response.sendRedirect("./CadastroP");
         }
 
     }
+
     @Override
     public String getServletInfo() {
         return "Short description";

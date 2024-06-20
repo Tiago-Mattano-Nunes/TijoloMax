@@ -140,6 +140,8 @@ public class ProdutosDAO {
         return produto;
     }
 
+    
+    /*
     public List<Produtos> ler(String categoria) {
         List<Produtos> livros = new ArrayList();
 
@@ -170,7 +172,7 @@ public class ProdutosDAO {
             e.printStackTrace();
         }
         return livros;
-    }
+    }*/
 
     public List<Produtos> ler3(int categoria) {
         List<Produtos> produto = new ArrayList<>();

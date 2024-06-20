@@ -39,10 +39,7 @@
 
                                 <a class="navbar-brand" aria-current="page" href="./Sobrenos"><i class="fa-solid fa-glasses"></i>Sobre Nós</a>
                             </li>
-                            <li class="nav-item">
-
-                                <a class="navbar-brand" href="./Cadastro"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
-                            </li>
+                            
                             <li class="nav-item dropdown">
 
                                 <a class="navbar-brand dropdown-toggle" href="#" role="button"
@@ -50,13 +47,13 @@
                                     <i class="fa-solid fa-hand-point-up"></i>Departamentos
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="./Categoria?id=1">Frios</a></li>
-                                    <li><a class="dropdown-item" href="./Categoria?id=2">Carnes</a></li>
-                                    <li><a class="dropdown-item" href="./Categoria?id=3">Bebidas</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-
+                                    <li><div>                      
+                                            <c:forEach items="${categoria}" var="catG"> 
+                                                <a  href="./Categoria?id=${catG.idCategoria}"> 
+                                                    <option value="${catG.idCategoria}">${catG.nome}</option>
+                                                </a>
+                                            </c:forEach>
+                                        </div></li>                              
                                 </ul>
 
                             </li>
@@ -90,50 +87,7 @@
         </header>
 
         <main>
-            <div class="enderecos">
-                
-                
-            
 
-                <form action="calcular" enctype="multipart/form-data" method="post" >
-                    <h2>Adicionar endereço:</h2>
-                    <h2>Estado:</h2>
-                    <input type="text" name="estado" id="imagem" required>
-
-                    <h2>Cidade:</h2>
-                    <input type="text" name="cidade" required>
-
-                    <h2>Rua:</h2>
-                    <input type="text" name="rua" required>
-
-                    <h2>Cep:</h2>
-                    <input type="text" name="cep" required>
-
-                    <h2>Número:</h2>
-                    <input type="text" name="numero" required>
-                    <h2>Complemento:</h2>
-                    <input type="text" name="complemento" required>
-                    <br>
-                    <input type="hidden"  name="id" value="${usuario.idUsuario}">   
-                    <input type="submit" value="Enviar" class="bt-comprar" >
-
-                </form>
-                <div>         
-
-                    <h3>Já tem um endereço cadastrado?</h3>
-                    <select class="custom-select" id="inputGroupSelect01" name="enderecos">
-                        <c:forEach items="${enderecos}" var="endereco">
-                            <option>Cidade: ${endereco.cidade} / Rua: ${endereco.rua} </option>
-
-                        </c:forEach>
-                    </select>
-                    <a id="linkVoltar" href="./Pagamento"> <input type="submit" value="Enviar" class="bt-comprar"  ></a>
-
-
-                </div>
-
-                <br><br><br>
-            </div>
 
 
 
@@ -141,49 +95,52 @@
                 <h1>Carrinho de Compras</h1>
                 <div class="cart">
                     <div class="cart-items">
-                        <c:forEach items="${carrinhos}" var="carrinho">
+                        <c:forEach items="${carrinhos}" var="carrinho" >
                             <div class="cart-item">
-
                                 <img src="data:image/png;base64,${carrinho.imagemBase64}" alt="${carrinho.nomeCarrinho}">
                                 <div class="item-details">
                                     <h2>${carrinho.nomeCarrinho}</h2>
                                     <p>Quantidade:${carrinho.quantidadeCarrinho}</p>
-                                    <h3>R$ ${carrinho.precoCarrinho}</h3>
+                                    <h3>R$ ${carrinho.precoCarrinho}</h3>                                      
                                     <p class="price"> </p>
                                 </div>
 
                             </div> </c:forEach> 
                             <div class="resumo">
                                 <h2>Resumo</h2>
-                                <p>Total: <span> <c:out value="${totalPreco}"/> </span></p>
+                                <p>Total: <span id="total_Preco"> <c:out value="${totalPreco}"/> </span></p>
+                            <a href="./Pagamento" class="btnn-comprar">Comprar</a> 
+
                         </div>
                     </div>                                
                 </div>
+
             </div> 
 
-        </div>
 
 
-        <form id="form-comprar" action="enviarb" method="post" enctype="multipart/form-data"
-              style="display: none;">
-            <input type="hidden" name="idProduto" id="idProduto">
-            <input type="hidden" name="descricao" id="descricao">
-            <input type="hidden" name="nome" id="nome">
-            <input type="hidden" name="preco" id="preco">
-            <input type="file" name="imagem" id="imagem">
-            <input type="hidden" name="quantidade" id="quantidade">
-        </form>
-    </main>
 
-    <footer>
-        <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️</p>
-    </footer>
+            <form id="form-comprar" action="enviarb" method="post" enctype="multipart/form-data"
+                  style="display: none;">
+                <input type="hidden" name="idProduto" id="idProduto">
+                <input type="hidden" name="descricao" id="descricao">
+                <input type="hidden" name="nome" id="nome">
+                <input type="hidden" name="preco" id="preco">
+                <input type="file" name="imagem" id="imagem">
+                <input type="hidden" name="quantidade" id="quantidade">
+            </form>
+        </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous"></script>
-    <script src="js/produtos.js"></script>
-    <script src="js/enderecos.js"></script>
-</body>
+        <footer>
+            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️ / email: dedentep1@gmail.com</p>
+
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+        <script src="js/produtos.js"></script>
+        <script src="js/enderecos.js"></script>
+    </body>
 
 </html>

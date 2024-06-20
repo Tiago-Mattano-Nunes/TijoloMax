@@ -51,6 +51,7 @@ public class CadastroPController extends HttpServlet {
         CatDAO categoria = new CatDAO();
         List<Categorias> categorias = categoria.leia();
         request.setAttribute("categoria", categorias );
+        
         String nextPage = "/WEB-INF/jsp/cadastroProdutos.jsp";
         Cadastro cadastro = new Cadastro();
         CadastroDAO cadastrodao = new CadastroDAO();

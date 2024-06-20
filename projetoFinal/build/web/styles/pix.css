@@ -22,7 +22,7 @@ a {
     color: black;
 }
 
-input {
+header input {
     border: none;
     width: 770px;
     border-radius: 10px;
@@ -183,6 +183,41 @@ main {
     display: grid;
     justify-content: space-around;
     place-items: center;
+}
+
+
+.btn-comprar {
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    margin-top: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+main input {
+    width: 300px;
+    height: 40px;
+    margin-top: 10px;
+    border: none;
+    transition: all 0.3s ease-in-out 0.1s;
+    border-bottom: 2px solid black;
+}
+
+.enderecos {
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 100px;
+}
+
+.enderecos h2 {
+    margin-top: 0;
+    font-size: 1.5em;
+    color: #333;
 }
 
 main button {

@@ -13,7 +13,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Dao.CatDAO;
 import model.Dao.EstoqueDAO;
+import model.bean.Categorias;
 import model.bean.Estoque;
 
 /**
@@ -33,11 +35,14 @@ public class EstoqueController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        CatDAO categoria = new CatDAO();
+        List<Categorias> categorias = categoria.leia();
+        request.setAttribute("categoria", categorias);
+
         EstoqueDAO produto = new EstoqueDAO();
         List<Estoque> estoques = produto.ler();
         request.setAttribute("estoque", estoques);
-        
-        
+
         String nextPage = "/WEB-INF/jsp/estoque.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
         dispatcher.forward(request, response);

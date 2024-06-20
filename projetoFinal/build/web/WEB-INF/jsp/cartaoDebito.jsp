@@ -40,10 +40,7 @@
 
                                 <a class="navbar-brand" aria-current="page" href="./Sobrenos"><i class="fa-solid fa-glasses"></i>Sobre Nós</a>
                             </li>
-                            <li class="nav-item">
-
-                                <a class="navbar-brand" href="./Cadastro"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
-                            </li>
+                           
                             <li class="nav-item dropdown">
 
                                 <a class="navbar-brand dropdown-toggle" href="#" role="button"
@@ -51,13 +48,13 @@
                                     <i class="fa-solid fa-hand-point-up"></i>Departamentos
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="./Categoria?id=1">Frios</a></li>
-                                    <li><a class="dropdown-item" href="./Categoria?id=2">Carnes</a></li>
-                                    <li><a class="dropdown-item" href="./Categoria?id=3">Bebidas</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-
+                                    <li><div>                      
+                                            <c:forEach items="${categoria}" var="catG"> 
+                                                <a  href="./Categoria?id=${catG.idCategoria}"> 
+                                                    <option value="${catG.idCategoria}">${catG.nome}</option>
+                                                </a>
+                                            </c:forEach>
+                                        </div></li>                              
                                 </ul>
 
                             </li>
@@ -90,43 +87,64 @@
             <br><br>
         </header>
         <main>
-            <h3>Quase lá...</h3>
-            <div class="campos">
-                <div>
-                    <h3>Nome do titular:</h3>
-                    <input type="text" name="nome" required>
-                </div>
-                <div>
-                    <h3>Número do cartão:</h3>
-                    <input type="password" name="numero" maxlength="16" minlength="16" required>
-                </div>
-                <div>
-                    <h3>CVV:</h3>
-                    <input type="password" name="cvv" maxlength="3" minlength="3" required>
-                </div>
-                <div>
-                    <h3>Vencimento:</h3>
-                    <input type="text" name="vencimento" required>
-                </div>
-                <div>         
+            <div class="enderecos">           
+                <form action="calcular" enctype="multipart/form-data" method="post" >
+                    <h2>Adicionar endereço:</h2>
+                    <h2>Estado:</h2>
+                    <input type="text" name="estado" id="imagem" required>
 
-                    <h3>Endereço:</h3>
-                    <select class="custom-select" id="inputGroupSelect01" name="enderecos">
-                        <c:forEach items="${enderecos}" var="endereco">
-                            <option >Cidade: ${endereco.cidade} / Rua: ${endereco.rua} </option>
-                        </c:forEach>
-                    </select>
-                </div>
-                <button id="finalizarBtn"><a href="./Agradecimento"><i class="fa-regular fa-thumbs-up"></i>Finalizar</a></button>
+                    <h2>Cidade:</h2>
+                    <input type="text" name="cidade" required>
+
+                    <h2>Rua:</h2>
+                    <input type="text" name="rua" required>
+
+                    <h2>Cep:</h2>
+                    <input type="text" name="cep" required>
+
+                    <h2>Número:</h2>
+                    <input type="text" name="numero" required>
+                    <h2>Complemento:</h2>
+                    <input type="text" name="complemento" >
+                    <br> <br><hr>
+                    <h3>DADOS DO CATÃO ABAIXO</h3>
+                    <hr>  <br>
+                    <div>
+                        <h3>Nome do titular:</h3>
+                        <input type="text" name="nome" required>
+                    </div>
+                    <div>
+                        <h3>Número do cartão:</h3>
+                        <input type="password" name="numero" maxlength="16" minlength="16" required>
+                    </div>
+                    <div>
+                        <h3>CVV:</h3>
+                        <input type="password" name="cvv" maxlength="3" minlength="3" required>
+                    </div>
+                    <div>
+                        <h3>Vencimento:</h3>
+                        <input type="text" name="vencimento" required>
+                    </div>
+                    <div>         
+                        <h3>Endereço:</h3>
+                        <select class="selecionar" id="inputGroupSelect01" name="enderecos">
+                            <c:forEach items="${enderecos}" var="endereco">
+                                <option >Cidade: ${endereco.cidade} / Rua: ${endereco.rua} </option>
+                            </c:forEach>
+                        </select>
+                    </div>
+
+                    <input type="hidden"  name="id" value="${usuario.idUsuario}">   
+                    <input type="submit" value="Enviar" class="btn-comprar" >
+                </form>
             </div>
         </main>
         <br><br>
 
         <footer>
+            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️ / email: dedentep1@gmail.com</p>
 
-            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️</p>
         </footer>
-
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

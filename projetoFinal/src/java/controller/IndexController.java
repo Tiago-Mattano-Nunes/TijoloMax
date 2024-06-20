@@ -38,6 +38,8 @@ public class IndexController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        
         ProdutosDAO produto = new ProdutosDAO();
         List<Produtos> produtos = produto.ler();
         request.setAttribute("produtos", produtos);

@@ -16,29 +16,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Dao.CadastroDAO;
+import model.Dao.CatDAO;
 import model.Dao.ProdutosDAO;
 import model.bean.Cadastro;
+import model.bean.Categorias;
 import model.bean.Produtos;
 
 /**
  *
  * @author Senai
  */
-
-
 public class PerfilController extends HttpServlet {
 
     /**
-        * Processes requests for both HTTP <code>GET</code> an d <code>POST</code>
-     * methods.             
+     * Processes requests for both HTTP <code>GET</code> an d <code>POST</code>
+     * methods.
      *
      * @param request servlet request
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs       
-     */ 
+     * @throws IOException if an I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        CatDAO categoria = new CatDAO();
+        List<Categorias> categorias = categoria.leia();
+        request.setAttribute("categoria", categorias);
+
         CadastroDAO perfill = new CadastroDAO();
         List<Cadastro> perfi = perfill.leiar();
         request.setAttribute("cadastros", perfi);

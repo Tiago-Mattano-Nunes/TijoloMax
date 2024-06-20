@@ -6,6 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Perfil</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="./assets/Preview__1_-removebg-preview.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
               crossorigin="anonymous">
@@ -40,10 +41,7 @@
 
                                 <a class="navbar-brand" aria-current="page" href="./Sobrenos"><i class="fa-solid fa-glasses"></i>Sobre Nós</a>
                             </li>
-                            <li class="nav-item">
-
-                                <a class="navbar-brand" href="./Cadastro"><i class="fa-solid fa-right-to-bracket"></i>Login</a>
-                            </li>
+                            
                             <li class="nav-item dropdown">
 
                                 <a class="navbar-brand dropdown-toggle" href="#" role="button"
@@ -51,13 +49,13 @@
                                     <i class="fa-solid fa-hand-point-up"></i>Departamentos
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="./Categoria?id=1">Frios</a></li>
-                                    <li><a class="dropdown-item" href="./Categoria?id=2">Carnes</a></li>
-                                    <li><a class="dropdown-item" href="./Categoria?id=3">Bebidas</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-
+                                    <li><div>                      
+                                            <c:forEach items="${categoria}" var="catG"> 
+                                                <a  href="./Categoria?id=${catG.idCategoria}"> 
+                                                    <option value="${catG.idCategoria}">${catG.nome}</option>
+                                                </a>
+                                            </c:forEach>
+                                        </div></li>                              
                                 </ul>
 
                             </li>
@@ -86,7 +84,7 @@
             <div class="voltar">
 
 
-                <a href="./Index"><i class="fa-solid fa-chevron-left">Voltar</i></a>
+                <a href="./Cadastro"><i class="fa-solid fa-chevron-left">LogOut</i></a>
 
             </div>
             <br> <br>
@@ -173,13 +171,14 @@
                                     <h2>${compra.nome}</h2>
                                     <p>Quantidade:${compra.quantidade}</p>
                                     <h3>R$ ${compra.preco}</h3>
+                                    <h3>${compra.descricao}</h3>
                                     <p class="price"> </p>
                                 </div>
                             </div> 
                         </c:forEach> 
-                            <div class="resumo">
-                                <h2>Resumo</h2>
-                                <p>Total: <span> <c:out value="${totalPreco}"/> </span></p>
+                        <div class="resumo">
+                            <h2>Resumo</h2>
+                            <p>Total: <span> <c:out value="${totalPreco}"/> </span></p>
                         </div>
                     </div>                                
                 </div>
@@ -189,7 +188,8 @@
         </main>
 
         <footer>
-            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️</p>
+            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️ / email: dedentep1@gmail.com</p>
+
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

@@ -21,9 +21,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import model.Dao.CadastroDAO;
 import model.Dao.CarrinhoDAO;
+import model.Dao.CatDAO;
 import model.Dao.ProdutosDAO;
 import model.bean.Cadastro;
 import model.bean.Carrinho;
+import model.bean.Categorias;
 import model.bean.Produtos;
 
 @WebServlet(urlPatterns = "/enviarFormulario")
@@ -35,6 +37,10 @@ public class PUnicoController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        CatDAO categoria = new CatDAO();
+        List<Categorias> categorias = categoria.leia();
+        request.setAttribute("categoria", categorias);
+
         ProdutosDAO produto = new ProdutosDAO();
         int id = Integer.parseInt(request.getParameter("id"));
         System.out.println(id);

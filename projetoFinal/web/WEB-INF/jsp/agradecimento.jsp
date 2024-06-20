@@ -1,9 +1,4 @@
-<%-- 
-    Document   : agradecimento
-    Created on : 13/06/2024, 14:50:14
-    Author     : arlin
---%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -46,10 +41,7 @@
                                 <i class="fa-solid fa-glasses"></i>
                                 <a class="navbar-brand" aria-current="page" href="./Sobrenos">Sobre Nós</a>
                             </li>
-                            <li class="nav-item">
-                                <i class="fa-solid fa-right-to-bracket"></i>
-                                <a class="navbar-brand" href="./Cadastro">Login</a>
-                            </li>
+                           
                             <li class="nav-item dropdown">
                                 <i class="fa-solid fa-hand-point-up"></i>
                                 <a class="navbar-brand dropdown-toggle" href="#" role="button"
@@ -57,13 +49,13 @@
                                     Departamentos
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="./Categoria?id=1">Frios</a></li>
-                                    <li><a class="dropdown-item" href="./Categoria?id=2">Carnes</a></li>
-                                    <li><a class="dropdown-item" href="./Categoria?id=3">Bebidas</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-
+                                    <li><div>                      
+                                            <c:forEach items="${categoria}" var="catG"> 
+                                                <a  href="./Categoria?id=${catG.idCategoria}"> 
+                                                    <option value="${catG.idCategoria}">${catG.nome}</option>
+                                                </a>
+                                            </c:forEach>
+                                        </div></li>                              
                                 </ul>
 
                             </li>
@@ -95,16 +87,16 @@
             </div>
             <br><br>
         </header>
-        
+
         <main>
             <div class="imagemM">
-             <img src="./assets/Preview__1_-removebg-preview.png" alt="">
+                <img src="./assets/Preview__1_-removebg-preview.png" alt="">
             </div>
             <h1>Muito Obrigado!</h1>
             <p>Clique no Botão Abaixo para Voltar para a página inicial</p>
             <a href="./Index" class="inicio-button">Página inicial</a>
 
-        
+
             <p>Nossas redes sociais !</p>
             <div class="social-icons">
                 <a href="#"><img src="facebook.png" alt="Facebook"></a>
@@ -116,7 +108,8 @@
         </main>
 
         <footer>
-            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️</p>
+            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️ / email: dedentep1@gmail.com</p>
+
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

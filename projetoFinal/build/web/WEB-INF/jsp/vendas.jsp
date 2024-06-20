@@ -4,16 +4,19 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>ADM</title>
+        <title>JSP Page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" href="./assets/Preview__1_-removebg-preview.png">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+              rel="stylesheet"
               integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
               crossorigin="anonymous">
-        <link rel="stylesheet" href="./styles/adm.css" />
+        <link rel="stylesheet" href="./styles/vendas.css?v=<?= time() ?>" />
         <script src="https://kit.fontawesome.com/446d1f4167.js" crossorigin="anonymous"></script>
     </head>
+
     <body>
+
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
@@ -37,7 +40,7 @@
 
                                 <a class="navbar-brand" aria-current="page" href="./Sobrenos"><i class="fa-solid fa-glasses"></i>Sobre Nós</a>
                             </li>
-
+                           
                             <li class="nav-item dropdown">
 
                                 <a class="navbar-brand dropdown-toggle" href="#" role="button"
@@ -58,9 +61,9 @@
 
                         </ul>
                         <div class="classi">
-                            <a href="./Carrinho?id=${usuario.idUsuario}"> <i class="fa-solid fa-cart-shopping"></i> </a>
+                            <a href="./Carrinho"> <i class="fa-solid fa-cart-shopping"></i> </a>
                             <br>
-                            <a href="./TelaADM"> <i class="fa-solid fa-user"></i> </a>
+                            <a href="./PerfilUsu"> <i class="fa-solid fa-user"></i> </a>
                         </div>
 
 
@@ -79,64 +82,40 @@
             <br>
 
             <div class="voltar">
-                <a href="./TelaADM"><i class="fa-solid fa-chevron-left">Voltar</i></a>
+                <a href="./Pagamento"><i class="fa-solid fa-chevron-left">Voltar</i></a>
             </div>
-
+            <br><br>
         </header>
 
-
         <main>
+            <div class="compras-tudo">
+                <h1>Pedidos:</h1>
+                <div class="compras-1">
+                    <div class="compras">
+                        <c:forEach items="${compras}" var="compra">
+                            <div class="compras">                      
+                                <div class="compras-2">
+                                    <h2>IdUsuario: ${compra.idUsuario}</h2>
+                                    <h2>Nome: ${compra.nome}</h2>
+                                    <p>Quantidade:${compra.quantidade}</p>
+                                    <h3>R$ ${compra.preco}</h3>
+                                    <h3>Descrição: ${compra.descricao}</h3>
+                                    <p class="preco"> </p>
+                                </div>
+                            </div> 
+                        </c:forEach> 
 
-            <h1>Administradores:</h1> 
-            <br><br><br><br><br>
-            <div class="uno">
-                <div>
-                    <a href="./CadastroP">  
-                        <i class="fa-solid fa-plus"></i>
-                        <p>Adicionar produtos</p>
-                    </a>
-                </div>
-
-
-                <div>
-
-                    <a href="./Perfil">  
-                        <i class="fa-regular fa-user"></i>
-                        <p>Usuarios Cadastrados</p>
-                    </a>
-                </div>
-                <div>
-                    <a href="./CadastroCat">  
-                        <i class="fa-solid fa-user-gear"></i>
-                        <p>Cadastrar Categorias</p>
-                    </a>
-                </div>
-            </div>
-            <br><br><br><br>
-            <div class="dos">
-
-
-                <div>
-                    <a href="./Vendas">  
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <p>Vendas</p>
-                    </a>
-                </div>
-                <div>
-                    <a href="./Estoque">  
-                        <i class="fa-solid fa-cart-shopping"></i>
-                        <p>Estoque</p>
-                    </a>
+                    </div>                                
                 </div>
             </div>
         </main>
+
         <footer>
             <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️ / email: dedentep1@gmail.com</p>
 
         </footer>
-
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>      
     </body>
 </html>

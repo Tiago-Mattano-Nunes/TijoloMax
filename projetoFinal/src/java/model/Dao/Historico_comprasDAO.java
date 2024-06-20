@@ -38,7 +38,43 @@ public class Historico_comprasDAO {
                 a.setIdUsuario(rs.getInt("idUsuario"));            
                 a.setNome(rs.getString("nome"));
       
-                a.setCategoria(rs.getString("categoria"));
+           
+                a.setDescricao(rs.getString("descricao"));
+                a.setPreco(rs.getFloat("preco"));
+
+                a.setQuantidade(rs.getInt("quantidade"));
+                a.setTotal_preco(rs.getInt("total_preco"));
+                compras.add(a);
+            }
+
+            rs.close();
+            stmt.close();
+            conexao.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return compras;
+    }
+    
+     public List<Historico_compras> listarComprasGeral() {
+        List<Historico_compras> compras = new ArrayList<>();
+        try {
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+
+            stmt = conexao.prepareCall("SELECT * FROM Historico_compras");
+ 
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                Historico_compras a = new Historico_compras();
+                a.setIdCompra(rs.getInt("idCompra"));
+                a.setIdProdutos(rs.getInt("idProdutos"));
+                a.setIdUsuario(rs.getInt("idUsuario"));            
+                a.setNome(rs.getString("nome"));
+      
+           
                 a.setDescricao(rs.getString("descricao"));
                 a.setPreco(rs.getFloat("preco"));
 

@@ -20,10 +20,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import model.Dao.CarrinhoDAO;
+import model.Dao.CatDAO;
 import model.Dao.EnderecosDAO;
 import model.bean.Carrinho;
+import model.bean.Categorias;
 import model.bean.Enderecos;
-
 
 public class FinalCompraController extends HttpServlet {
 
@@ -41,19 +42,22 @@ public class FinalCompraController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        CatDAO categoria = new CatDAO();
+        List<Categorias> categorias = categoria.leia();
+        request.setAttribute("categoria", categorias);
+        
         CarrinhoDAO produto = new CarrinhoDAO();
         int id = Integer.parseInt(request.getParameter("id"));
-        
-        
+
         Cookie[] cookies = request.getCookies();
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("loginManter")) {
-                
+
                 request.setAttribute("teste", cookie.getValue());
-                System.out.println( cookie.getValue());
+                System.out.println(cookie.getValue());
             }
         }
-        
+
         String url = "/WEB-INF/jsp/finalCompra.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
@@ -83,14 +87,11 @@ public class FinalCompraController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     @Override
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
 
     }
-    
-   
 
     @Override
     public String getServletInfo() {

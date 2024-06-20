@@ -69,6 +69,8 @@ public class CadastroDAO {
         }
     }
 
+    
+    /*
     public List<Cadastro> leia(int Cadastro) {
         List<Cadastro> usuario = new ArrayList<>();
         try {
@@ -96,7 +98,7 @@ public class CadastroDAO {
             e.printStackTrace();
         }
         return usuario;
-    }
+    }  */
 
     public List<Cadastro> leiar() {
         List<Cadastro> usuario = new ArrayList<>();

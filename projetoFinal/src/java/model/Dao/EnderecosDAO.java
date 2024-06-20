@@ -24,9 +24,9 @@ public class EnderecosDAO {
             Connection conexao = Conexao.conectar();
             PreparedStatement stmt = null;
 
-            // Inserindo os dados na tabela "Enderecos" junto com o idUsuario
+            
             stmt = conexao.prepareStatement("INSERT INTO Enderecos(idUsuario, Cep, Estado, Cidade, Complemento, Numero, Rua) VALUES (?,?,?,?,?,?,?)");
-            stmt.setInt(1, endereco.getIdUsuario()); // Fornecendo o idUsuario
+            stmt.setInt(1, endereco.getIdUsuario());
             stmt.setString(2, endereco.getCep());
             stmt.setString(3, endereco.getEstado());
             stmt.setString(4, endereco.getCidade());

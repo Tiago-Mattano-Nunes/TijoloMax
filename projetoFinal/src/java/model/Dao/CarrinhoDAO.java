@@ -40,7 +40,7 @@ public List<Carrinho> listar(int idUsuario) {
                 a.setIdUsuario(rs.getInt("idUsuario"));
                 a.setNomeCarrinho(rs.getString("nome_carrinho"));
                 a.setImagemCarrinho(rs.getBytes("imagem_carrinho"));
-                a.setCategoriaCarrinho(rs.getString("categoria_carrinho"));
+            
                 a.setDescricaoCarrinho(rs.getString("descricao_carrinho"));
                 a.setPrecoCarrinho(rs.getFloat("preco_carrinho"));
                

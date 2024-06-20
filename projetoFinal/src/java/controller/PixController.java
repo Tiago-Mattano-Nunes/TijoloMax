@@ -15,8 +15,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Dao.CadastroDAO;
+import model.Dao.CatDAO;
 import model.Dao.EnderecosDAO;
 import model.bean.Cadastro;
+import model.bean.Categorias;
 import model.bean.Enderecos;
 
 /**
@@ -36,6 +38,10 @@ public class PixController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        CatDAO categoria = new CatDAO();
+        List<Categorias> categorias = categoria.leia();
+        request.setAttribute("categoria", categorias);
 
         Cadastro cadastro = new Cadastro();
         CadastroDAO cadastrodao = new CadastroDAO();
