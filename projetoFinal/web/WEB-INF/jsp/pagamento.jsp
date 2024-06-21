@@ -95,12 +95,12 @@
 
 
 
-            <div class="payment-container">
+            <div class="pagamento">
                 <h1>Forma de pagamento</h1>
                 <a href="./CartaoC">
-                    <div class="payment-option">  
+                    <div class="pagamentoOpcao">  
 
-                        <div class="option-left">
+                        <div class="opcao">
                             <i class="icon">💳</i> Cartão de crédito
 
                         </div>
@@ -108,32 +108,38 @@
                     </div>
                 </a>
                 <a href="./CartaoDebito"> 
-                    <div class="payment-option">
-                        <div class="option-left">
+                    <div class="pagamentoOpcao">
+                        <div class="opcao">
                             <i class="icon">💵</i> Cartão de débito 
 
                         </div>
                     </div>
                 </a>  
                 <a href="./Pix">   
-                    <div class="payment-option">
-                        <div class="option-left">
+                    <div class="pagamentoOpcao">
+                        
+                        <div class="opcao">
                             <i class="icon">💰</i> Pix                      
                         </div>          
                     </div>
                 </a> 
 
             </div>
+            
+            
+            
+            
+            
 
 
-            <div class="cart-container">
+            <div class="cart1">
                 <h1>Carrinho de Compras</h1>
                 <div class="cart">
-                    <div class="cart-items">
+                    <div class="cart2">
                         <c:forEach items="${carrinhos}" var="carrinho">
-                            <div class="cart-item">
+                            <div class="cart3">
                                 <img src="data:image/png;base64,${carrinho.imagemBase64}" alt="${carrinho.nomeCarrinho}">
-                                <div class="item-details">
+                                <div class="itens">
                                     <h2>${carrinho.nomeCarrinho}</h2>
                                     <p>Quantidade:${carrinho.quantidadeCarrinho}</p>
                                     <h3>R$ ${carrinho.precoCarrinho}</h3>

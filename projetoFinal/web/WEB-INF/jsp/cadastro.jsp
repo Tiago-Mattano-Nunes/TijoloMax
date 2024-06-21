@@ -40,8 +40,8 @@
 
                         <button class="btn btn-second" type="submit">sign up</button>        
                     </form>
-                </div><!-- second column -->
-            </div><!-- first content -->
+                </div>
+            </div>
             <div class="content second-content">
                 <div class="first-column">
                     <h2 class="title title-primary">Bem Vindo!</h2>
@@ -78,8 +78,8 @@
                         <a class="password" href="#">forgot your password?</a>
                         <button  type="submit"class="btn btn-second">sign in</button>
                     </form>
-                </div><!-- second column -->
-            </div><!-- second-content -->
+                </div>
+            </div> 
         </div>
         <script src="js/cadastro.js"></script>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

@@ -116,6 +116,7 @@
         <servlet-name>CarrinhoController</servlet-name>
         <url-pattern>/Carrinho</url-pattern>
     </servlet-mapping>
+    
     <servlet-mapping>
         <servlet-name>PerfilController</servlet-name>
         <url-pattern>/Perfil</url-pattern>

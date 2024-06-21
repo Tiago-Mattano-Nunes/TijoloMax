@@ -41,7 +41,7 @@
 
                                 <a class="navbar-brand" aria-current="page" href="./Sobrenos"><i class="fa-solid fa-glasses"></i>Sobre Nós</a>
                             </li>
-                            
+
                             <li class="nav-item dropdown">
 
                                 <a class="navbar-brand dropdown-toggle" href="#" role="button"
@@ -125,33 +125,29 @@
 
                 <div class="enderecos">
                     <c:forEach items="${enderecos}" var="endereco">
-                        <div class="cart-enderecos">
+                        <div class="enderecosU">
 
-                            <div class="item-enderecos">
-                                <h3>Endereço:</h3>
-                                <h2>${endereco.idEndereco}</h2>
-                            </div>
-                            <div class="item-enderecos">
+                            <div class="informacoes">
                                 <h3>Rua:</h3>
                                 <h2>${endereco.rua}</h2>
                             </div>
-                            <div class="item-enderecos">
+                            <div class="informacoes">
                                 <h3>Número:</h3>
                                 <h2>${endereco.numero}</h2>
                             </div>
-                            <div class="item-enderecos">
+                            <div class="informacoes">
                                 <h3>Complemento:</h3>
                                 <h2>${endereco.complemento}</h2>
                             </div>
-                            <div class="item-enderecos">
+                            <div class="informacoes">
                                 <h3>Cidade:</h3>
                                 <h2>${endereco.cidade}</h2>
                             </div>
-                            <div class="item-enderecos">
+                            <div class="informacoes">
                                 <h3>Estado:</h3>
                                 <h2>${endereco.estado}</h2>
                             </div>
-                            <div class="item-enderecos">
+                            <div class="informacoes">
                                 <h3>CEP:</h3>   
                                 <h2>${endereco.cep}</h2>
                             </div>
@@ -161,26 +157,31 @@
 
             </div>
             <br> <br>
-            <div class="cart-container">
-                <h1>Pedidos:</h1>
-                <div class="cart">
-                    <div class="cart-items">
+
+
+
+
+            <div class="compras-tudo">
+                <h1>Compras</h1>
+                <div class="compras-1">
+                    <div class="comprasu">
                         <c:forEach items="${compras}" var="compra">
-                            <div class="cart-item">                      
-                                <div class="item-details">
-                                    <h2>${compra.nome}</h2>
+                            <div class="compras">                      
+                                <div class="compras-2">
+
+                                    <h2>Nome: ${compra.nome}</h2>
                                     <p>Quantidade:${compra.quantidade}</p>
                                     <h3>R$ ${compra.preco}</h3>
-                                    <h3>${compra.descricao}</h3>
-                                    <p class="price"> </p>
+                                    <h3>Descrição: ${compra.descricao}</h3>
+                                    <p class="preco"> </p>
                                 </div>
                             </div> 
                         </c:forEach> 
                         <div class="resumo">
                             <h2>Resumo</h2>
-                            <p>Total: <span> <c:out value="${totalPreco}"/> </span></p>
+                            <p>Total: <span id="total_Preco"> <c:out value="${totalPreco}"/> </span></p>
                         </div>
-                    </div>                                
+                    </div>  
                 </div>
             </div>
 

@@ -13,10 +13,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Dao.CadastroDAO;
 import model.Dao.CatDAO;
 import model.Dao.Historico_comprasDAO;
-import model.bean.Cadastro;
 import model.bean.Categorias;
 import model.bean.Historico_compras;
 
@@ -45,10 +43,6 @@ public class VendasController extends HttpServlet {
         Historico_comprasDAO histrorico = new Historico_comprasDAO();
         List<Historico_compras> compra = histrorico.listarComprasGeral();
         request.setAttribute("compras", compra);
-
-        CadastroDAO perfill = new CadastroDAO();
-        List<Cadastro> perfi = perfill.leiar();
-        request.setAttribute("cadastros", perfi);
 
         String nextPage = "/WEB-INF/jsp/vendas.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);

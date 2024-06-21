@@ -135,7 +135,7 @@ header img{
 
 
 
-.cart-container {
+.cart1 {
     width: 80%;
     width: 600px;
     height: 800px;
@@ -162,35 +162,35 @@ h1 {
     justify-content: space-between;
 }
 
-.cart-items {
+.cart2 {
     flex: 3;
 }
 
-.cart-item {
+.cart3 {
     display: flex;
     align-items: center;
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
 }
 
-.cart-item img {
+.cart3 img {
     width: 100px;
     height: 100px;
     object-fit: cover;
     margin-right: 20px;
 }
 
-.item-details {
+.itens{
     flex: 1;
 }
 
-.item-details h2 {
+.itens h2 {
     margin: 0;
     font-size: 18px;
 }
 
-.item-details p {
-    margin: 5px 0;
+.itens p {
+    margin: 5px 0;  
 }
 
 .quantity {
@@ -262,7 +262,7 @@ main{
 main a{
     text-decoration: none;
 }
-.payment-container {
+.pagamento {
     width: 550px;
     background-color: #ffffff;
     border-radius: 8px;
@@ -273,13 +273,13 @@ main a{
     height: 290px;
 }
 
-.payment-container h1 {
+.pagamento h1 {
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
 }
 
-.payment-option {
+.pagamentoOpcao {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -291,16 +291,16 @@ main a{
     transition: background-color 0.3s;
 }
 
-.payment-option:hover {
+.pagamentoOpcao:hover {
     background-color: #f9f9f9;
 }
 
-.option-left {
+.opcao {
     display: flex;
     align-items: center;
 }
 
-.option-left .icon {
+.opcao .icon {
     margin-right: 10px;
 }
 
@@ -310,7 +310,7 @@ main a{
 
     }
 
-    .cart-container {
+    .cart1 {
         width: 80%;
         width: 390px;
         height: 800px;
@@ -322,7 +322,7 @@ main a{
         margin-right: auto;
         overflow: scroll;
     }
-    .payment-container {
+    .pagamento {
         width: 390px;
         background-color: #ffffff;
         border-radius: 8px;

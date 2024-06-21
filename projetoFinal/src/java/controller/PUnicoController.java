@@ -78,12 +78,11 @@ public class PUnicoController extends HttpServlet {
             CarrinhoDAO carrinhoDAO = new CarrinhoDAO();
             List<Carrinho> carrinhos = carrinhoDAO.listar(idUsuario);
             request.setAttribute("carrinho", carrinhos);
-            float totalPreco = produtoDao.calcular(idUsuario);
-            request.setAttribute("totalPreco", totalPreco);
+            
         } else {
             PrintWriter out = response.getWriter();
             out.println("<script type=\"text/javascript\">");
-            out.println("alert('Faça login .');");
+            out.println("alert('Faça login.');");
             out.println("</script>");
         }
 

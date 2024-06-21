@@ -17,11 +17,10 @@ import javax.servlet.http.HttpServletResponse;
 import model.Dao.CadastroDAO;
 import model.Dao.CarrinhoDAO;
 import model.Dao.CatDAO;
-import model.Dao.EnderecosDAO;
 import model.bean.Cadastro;
 import model.bean.Carrinho;
 import model.bean.Categorias;
-import model.bean.Enderecos;
+
 
 /**
  *
@@ -32,12 +31,7 @@ public class PagamentoController extends HttpServlet {
     Carrinho produto = new Carrinho();
     CarrinhoDAO produtoDao = new CarrinhoDAO();
 
-    Enderecos endereco = new Enderecos();
-    EnderecosDAO enderecosdao = new EnderecosDAO();
-
-    Cadastro cadastro = new Cadastro();
-    CadastroDAO cadastrodao = new CadastroDAO();
-
+   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

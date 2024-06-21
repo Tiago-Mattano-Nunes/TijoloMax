@@ -196,7 +196,7 @@ main img{
     place-items: center;
 }
 
-.inicio-button {
+.inicioBtn {
     display: inline-block;
     padding: 10px 20px;
     background-color: #ff7f00;

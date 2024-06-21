@@ -76,7 +76,8 @@ CREATE TABLE Historico_Compras (
     idCompra INT AUTO_INCREMENT PRIMARY KEY,
     idUsuario INT NOT NULL,
     idProdutos INT NOT NULL,
-    nome VARCHAR(255) NOT NULL,    
+    nome VARCHAR(255) NOT NULL,
+    
     descricao TEXT,
     preco DECIMAL(10, 2) NOT NULL,
     quantidade INT NOT NULL,

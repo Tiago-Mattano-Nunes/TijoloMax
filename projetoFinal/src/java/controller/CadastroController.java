@@ -17,10 +17,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Dao.CadastroDAO;
-import model.Dao.EnderecosDAO;
 import model.bean.Cadastro;
 import model.bean.Categorias;
-import model.bean.Enderecos;
+
 
 @WebServlet(urlPatterns = {"/criar", "/logar"})
 @MultipartConfig
@@ -29,8 +28,8 @@ public class CadastroController extends HttpServlet {
     Cadastro usuario = new Cadastro();
     CadastroDAO usuarioDao = new CadastroDAO();
 
-    Enderecos endereco = new Enderecos();
-     EnderecosDAO enderecodao = new EnderecosDAO();
+    
+  
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -53,13 +52,12 @@ public class CadastroController extends HttpServlet {
     protected void logar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Cadastro usuario = new Cadastro();
-        Enderecos endereco = new Enderecos();
+       
         usuario.setEmail(request.getParameter("email"));
         usuario.setSenha(request.getParameter("senha"));
         System.out.println("idusuario" + usuario.getIdUsuario());
         int idUsuario = usuarioDao.validaUser(usuario);
-       
-        
+
         PrintWriter sout = response.getWriter();
         if (usuario.getEmail().trim().isEmpty() || usuario.getSenha().trim().isEmpty()) {
             sout.println("<script type=\"text/javascript\">");
@@ -71,8 +69,6 @@ public class CadastroController extends HttpServlet {
 
                 Cookie servilet = new Cookie("loginManter", Integer.toString(idUsuario));
                 response.addCookie(servilet);
-
-               
 
                 if (idUsuario == 1) {
                     response.sendRedirect("./TelaADM");

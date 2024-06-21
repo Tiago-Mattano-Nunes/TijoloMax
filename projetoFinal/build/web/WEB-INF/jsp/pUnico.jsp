@@ -102,14 +102,14 @@
             <div class="container">
                 <c:forEach items="${produtos}" var="produto">
                     <div id="produto_${produto.idProdutos}" class="product">
-                        <div class="product-images">
+                        <div class="produtoImagem">
                             <img id="mainImage" src="data:image/png;base64,${produto.imagemBase64}" alt="Imagem Principal">
 
                         </div>
-                        <div class="product-details">
+                        <div class="detalhes">
                             <p class="nomeProduto"> ${produto.nomeProdutos}  </p>
 
-                            <div class="price">
+                            <div class="preco">
                                 <p id="preco">R$ ${produto.preco}</p>
                             </div>
 
@@ -163,8 +163,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>      
-
-
         <script src="js/produtos.js"></script>
     </body>
 

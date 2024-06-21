@@ -127,7 +127,7 @@
                         <i class="fa-solid fa-cart-shopping"></i>
                         <p>Estoque</p>
                     </a>
-                </div>
+                </div>               
             </div>
         </main>
         <footer>

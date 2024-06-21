@@ -56,6 +56,10 @@ main {
 
 }
 
+.btnn-comprar.nao {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
 
 
 .form-group {
@@ -92,7 +96,7 @@ main {
     background-color: white;
 }
 
-.cart-container {
+.cart1 {
 
     width: 360px;
     height: 800px;
@@ -119,7 +123,7 @@ main {
     }
 
 
-    .cart-container {
+    .cart1{
 
         width: 600px;
         height: 800px;
@@ -151,36 +155,36 @@ h1 {
     justify-content: space-between;
 }
 
-.cart-items {
+.cart2 {
     flex: 3;
 }
 
-.cart-item {
+.cart3{
     display: flex;
     align-items: center;
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
 }
 
-.cart-item img {
+.cart3 img {
     width: 100px;
     height: 100px;
     object-fit: cover;
     margin-right: 20px;
 }
 
-.item-details {
+.itens {
     flex: 1;
     place-items: center;
     text-align: start;
 }
 
-.item-details h2 {
+.itens h2 {
     margin: 0;
     font-size: 18px;
 }
 
-.item-details p {
+.itens p {
     margin: 5px 0;
 }
 
@@ -203,7 +207,7 @@ h1 {
     margin: 0 10px;
 }
 
-.price {
+.preco {
     font-size: 16px;
     font-weight: bold;
 }

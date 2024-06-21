@@ -94,11 +94,11 @@
             </div>
             <h1>Muito Obrigado!</h1>
             <p>Clique no Botão Abaixo para Voltar para a página inicial</p>
-            <a href="./Index" class="inicio-button">Página inicial</a>
+            <a href="./Index" class="inicioBtn">Página inicial</a>
 
 
             <p>Nossas redes sociais !</p>
-            <div class="social-icons">
+            <div class="social">
                 <a href="#"><img src="facebook.png" alt="Facebook"></a>
                 <a href="#"><img src="twitter.png" alt="Twitter"></a>
                 <a href="#"><img src="google.png" alt="Google"></a>

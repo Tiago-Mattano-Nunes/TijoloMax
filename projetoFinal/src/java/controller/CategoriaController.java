@@ -29,9 +29,7 @@ import model.bean.Produtos;
 @WebServlet(name = "CategoriaController", urlPatterns = {"/Categoria"})
 public class CategoriaController extends HttpServlet {
 
-    Produtos objProduto = new Produtos();
-    ProdutosDAO objProdutoDao = new ProdutosDAO();
-
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.

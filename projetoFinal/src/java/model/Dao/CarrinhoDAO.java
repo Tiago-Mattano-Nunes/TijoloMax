@@ -107,5 +107,26 @@ public List<Carrinho> listar(int idUsuario) {
     }
     return totalPreco;
 }
+   
+   public void deletar(int id){
+        try{
+            Connection conexao = Conexao.conectar();
+            PreparedStatement stmt = null;
+           
+            stmt = conexao.prepareCall("DELETE FROM carrinho WHERE idCarrinho = ?");
+            stmt.setInt(1, id);
+           
+            stmt.executeUpdate();
+           
+            stmt.close();
+            conexao.close();
+           
+           
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
 
 }
+
+

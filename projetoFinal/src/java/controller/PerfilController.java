@@ -17,10 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Dao.CadastroDAO;
 import model.Dao.CatDAO;
-import model.Dao.ProdutosDAO;
 import model.bean.Cadastro;
 import model.bean.Categorias;
-import model.bean.Produtos;
+
 
 /**
  *

@@ -39,7 +39,7 @@
 
                                 <a class="navbar-brand" aria-current="page" href="./Sobrenos"><i class="fa-solid fa-glasses"></i>Sobre Nós</a>
                             </li>
-                            
+
                             <li class="nav-item dropdown">
 
                                 <a class="navbar-brand dropdown-toggle" href="#" role="button"
@@ -80,6 +80,9 @@
             <br>
             <br>
 
+            <span>
+                ${usuario.idUsuario}
+            </span>
             <div class="voltar">
                 <a href="./Index"><i class="fa-solid fa-chevron-left">Voltar</i></a>
             </div>
@@ -91,25 +94,39 @@
 
 
 
-            <div class="cart-container">
+            <div class="cart1">
                 <h1>Carrinho de Compras</h1>
                 <div class="cart">
-                    <div class="cart-items">
+                    <div class="cart2">
                         <c:forEach items="${carrinhos}" var="carrinho" >
-                            <div class="cart-item">
+                            <div class="cart3">
                                 <img src="data:image/png;base64,${carrinho.imagemBase64}" alt="${carrinho.nomeCarrinho}">
-                                <div class="item-details">
+                                <div class="itens">
                                     <h2>${carrinho.nomeCarrinho}</h2>
                                     <p>Quantidade:${carrinho.quantidadeCarrinho}</p>
                                     <h3>R$ ${carrinho.precoCarrinho}</h3>                                      
-                                    <p class="price"> </p>
+                                    <p class="preco"> </p>
                                 </div>
+                                <form id="formDelet-${carrinho.idCarrinho}" action="enviarFormularioDelete" method="post" enctype="multipart/form-data">
+                                    <input type="hidden" name="action" value="delete">
+                                    <input type="hidden" name="idCarinho" value="${carrinho.idCarrinho}">
+                                    <button type="submit" href="./Carrinho">Excluir Item</button>
+                                </form>
 
-                            </div> </c:forEach> 
-                            <div class="resumo">
-                                <h2>Resumo</h2>
-                                <p>Total: <span id="total_Preco"> <c:out value="${totalPreco}"/> </span></p>
-                            <a href="./Pagamento" class="btnn-comprar">Comprar</a> 
+                            </div> 
+                        </c:forEach> 
+                        <div class="resumo">
+                            <h2>Resumo</h2>
+                            <p>Total: <span id="total_Preco"> <c:out value="${totalPreco}"/> </span></p>
+                            <c:choose>
+                                <c:when test="${empty carrinhos}">
+                                    <a href="#" class="btnn-comprar nao" onclick="return false;">Comprar</a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a href="./Pagamento" class="btnn-comprar">Comprar</a>
+                                </c:otherwise>
+                            </c:choose>
+
 
                         </div>
                     </div>                                
@@ -139,8 +156,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-        <script src="js/produtos.js"></script>
-        <script src="js/enderecos.js"></script>
+        <script src="./js/deletaCarrinho.js"></script>
     </body>
 
 </html>

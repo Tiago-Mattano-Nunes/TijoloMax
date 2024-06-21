@@ -23,14 +23,12 @@ import model.Dao.CadastroDAO;
 import model.Dao.CarrinhoDAO;
 import model.Dao.CatDAO;
 import model.Dao.EnderecosDAO;
-import model.Dao.ProdutosDAO;
 import model.bean.Cadastro;
 import model.bean.Carrinho;
 import model.bean.Categorias;
 import model.bean.Enderecos;
-import model.bean.Produtos;
 
-@WebServlet(urlPatterns = "/calcular")
+@WebServlet(urlPatterns = {"/calcular", "/enviarFormularioDelete"})
 @MultipartConfig
 public class CarrinhoController extends HttpServlet {
 
@@ -39,9 +37,6 @@ public class CarrinhoController extends HttpServlet {
 
     Carrinho produto = new Carrinho();
     CarrinhoDAO produtoDao = new CarrinhoDAO();
-
-    Cadastro cadastro = new Cadastro();
-    CadastroDAO cadastrodao = new CadastroDAO();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -63,6 +58,7 @@ public class CarrinhoController extends HttpServlet {
         CadastroDAO cadastrodao = new CadastroDAO();
         Cookie[] cookies = request.getCookies();
 
+        //verifica se está logado
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("loginManter")) {
 
@@ -71,6 +67,7 @@ public class CarrinhoController extends HttpServlet {
             }
         }
 
+        //único do usuário
         int idUsuario = 0; // Valor padrão, caso não seja possível extrair o ID do usuário do cookie
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("loginManter")) {
@@ -123,6 +120,8 @@ public class CarrinhoController extends HttpServlet {
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
+     *
+     *
      * @param response servlet response
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
@@ -147,7 +146,9 @@ public class CarrinhoController extends HttpServlet {
         String action = request.getServletPath();
         if (action.equals("/calcular")) {
             user(request, response);
-        } else {
+        } else if (action.equals("/enviarFormularioDelete")) {
+            deletar(request, response);
+        } else{
             processRequest(request, response);
         }
 
@@ -172,9 +173,22 @@ public class CarrinhoController extends HttpServlet {
 
     }
 
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+    protected void deletar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String action = request.getParameter("action");
 
+        if (action != null && action.equals("delete")) {
+         
+            int idCarrinho = Integer.parseInt(request.getParameter("idCarinho"));
+            CarrinhoDAO carrinho = new CarrinhoDAO();
+         
+            carrinho.deletar(idCarrinho);
+
+            
+        }
+    }
 }
+
+
+
+

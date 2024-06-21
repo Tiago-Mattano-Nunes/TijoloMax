@@ -152,7 +152,7 @@ button i{
     overflow: scroll;
 }
 
-.cart-enderecos {
+.enderecosU {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -162,18 +162,18 @@ button i{
     border-radius: 8px;
 }
 
-.item-enderecos {
+.informacoes {
     flex: 1 1 30%; /* Permite que os detalhes se ajustem à largura disponível */
     min-width: 150px; /* Define uma largura mínima */
 }
 
-.item-enderecos h3 {
+.informacoes h3 {
     margin: 0;
     font-size: 14px;
     color: #555;
 }
 
-.item-enderecos h2 {
+.informacoes h2 {
     margin: 5px 0 15px;
     font-size: 18px;
     color: #333;
@@ -181,8 +181,8 @@ button i{
 
 
 
-.cart-container {
-    width: 900px;
+.compras-tudo {
+    width: 400px;
     height: 550px;
     background: white;
     padding: 20px;
@@ -193,51 +193,45 @@ button i{
     overflow: scroll;
 }
 
-.resumo{
-    text-align: center;
-    flex: 1;
-    margin-top: 0;
-    margin-left: 20px;
-}
+
 
 h1 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.cart {
+.compras-1 {
     display: flex;
     justify-content: space-between;
 }
 
-.cart-items {
+.comprasu {
     flex: 3;
 }
 
-.cart-item {
-    display: flex;
+.compras {
     align-items: center;
     border-bottom: 1px solid #ddd;
     padding: 10px 0;
 }
 
-.cart-item img {
+.compras img {
     width: 100px;
     height: 100px;
     object-fit: cover;
     margin-right: 20px;
 }
 
-.item-details {
+.compras-2 {
     flex: 1;
 }
 
-.item-details h2 {
+.compras-2 h2 {
     margin: 0;
     font-size: 18px;
 }
 
-.item-details p {
+.compras-2 p {
     margin: 5px 0;
 }
 
@@ -260,7 +254,7 @@ h1 {
     margin: 0 10px;
 }
 
-.price {
+.preco {
     font-size: 16px;
     font-weight: bold;
 }
@@ -346,6 +340,11 @@ main a{
     text-align: right;
 }
 
+main p{
+    justify-content: space-around;
+    align-items: center;
+    height: 58px;
+}
 
 
 @media (max-width: 768px) {
@@ -382,7 +381,7 @@ main a{
         margin-right: auto;
     }
 
-    .cart-container {
+    .compras-tudo{
         width: 360px;
         height: 550px;
         background: white;
@@ -406,7 +405,7 @@ footer {
     background-color: #D94D4D;
 }
 
-p{
+footer p{
     display: grid;
     justify-content: space-around;
     align-items: center;

@@ -28,9 +28,7 @@ import model.bean.Enderecos;
 
 public class FinalCompraController extends HttpServlet {
 
-    Enderecos objProduto = new Enderecos();
-    EnderecosDAO objProdutoDao = new EnderecosDAO();
-
+   
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.

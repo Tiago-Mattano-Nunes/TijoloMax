@@ -15,12 +15,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Dao.CadastroDAO;
-import model.Dao.CarrinhoDAO;
 import model.Dao.CatDAO;
 import model.Dao.EnderecosDAO;
 import model.Dao.Historico_comprasDAO;
 import model.bean.Cadastro;
-import model.bean.Carrinho;
 import model.bean.Categorias;
 import model.bean.Enderecos;
 import model.bean.Historico_compras;
@@ -31,20 +29,9 @@ import model.bean.Historico_compras;
  */
 public class PerfilUsuController extends HttpServlet {
 
-    Carrinho produto = new Carrinho();
-    CarrinhoDAO produtoDao = new CarrinhoDAO();
+   
 
-    Enderecos endereco = new Enderecos();
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -82,16 +69,12 @@ public class PerfilUsuController extends HttpServlet {
         // Verifica se o idUsuario foi definido com sucesso
         if (idUsuario != -1) {
             // Use o idUsuario para listar o carrinho
-            CarrinhoDAO carrinhoDAO = new CarrinhoDAO();
-            List<Carrinho> carrinhos = carrinhoDAO.listar(idUsuario);
-            request.setAttribute("carrinhos", carrinhos);
+           
 
             EnderecosDAO enderecosdao = new EnderecosDAO();
             List<Enderecos> endereco = enderecosdao.listarEndereco(idUsuario);
             request.setAttribute("enderecos", endereco);
 
-            float totalPreco = produtoDao.calcular(idUsuario);
-            request.setAttribute("totalPreco", totalPreco);
 
             Historico_comprasDAO histrorico = new Historico_comprasDAO();
             List<Historico_compras> compra = histrorico.listarCompras(idUsuario);
