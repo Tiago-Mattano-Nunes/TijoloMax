@@ -8,7 +8,7 @@
 }
     
 .nav-item {
-    margin-left: 50px;
+    
     align-items: center;
     display: flex;
 }
@@ -46,7 +46,7 @@ ul{
 
 .containerr{
     padding: 0;
-    margin-bottom: 299px;
+    margin-bottom: 300px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -91,7 +91,6 @@ ul{
     margin-top: 20px;
 }
 .containerr .produto p{
-    margin-top: 30px;
     margin-bottom: 0;
     font-size: 25px;
     color: black;
@@ -186,22 +185,6 @@ header img{
 button i{
     color: black;
 }
-footer {
-    display: grid;
-    justify-content: space-around;
-    height: 58px;
-    align-items: center;
-    color: white;
-    background-color: #D94D4D;
-}
-
-p{
-    display: grid;
-    justify-content: space-around;
-    align-items: center;
-    height: 58px;
-
-}
 
 .prods{
     
@@ -214,4 +197,19 @@ p{
     margin-right: auto;
     border-radius: 10px;
     
+}
+footer {
+    display: grid;
+    justify-content: space-around;
+    height: 58px;
+    align-items: center;
+    color: white;
+    background-color: #D94D4D;
+}
+
+footer p{
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+
 }

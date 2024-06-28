@@ -4,9 +4,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Cadastar categorias</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="./assets/Preview__1_-removebg-preview.png">
+        <link rel="icon" href="./assets/Imagem_do_WhatsApp_de_2024-06-26_à_s__00.47.52_72c1f895-removebg-preview.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
               crossorigin="anonymous">
@@ -17,7 +17,7 @@
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <img src="./assets/Preview__1_-removebg-preview.png" alt="">
+                    <img src="./assets/Imagem do WhatsApp de 2024-06-26 à(s) 00.47.52_72c1f895.jpg" alt="">
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -35,14 +35,14 @@
 
                             <li class="nav-item">
                                 <i class="fa-solid fa-glasses"></i>
-                                <a class="navbar-brand" aria-current="page" href="./CadastroP">ProdutosCadastro</a>
+                                <a class="navbar-brand" aria-current="page" href="./Sobrenos">Sobre Nós</a>
                             </li>
                            
                             <li class="nav-item dropdown">
                                 <i class="fa-solid fa-hand-point-up"></i>
                                 <a class="navbar-brand dropdown-toggle" href="#" role="button"
                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Departamentos
+                                    Categorias
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><div>                      
@@ -89,26 +89,29 @@
         <main>
 
             <div class="cat">
-                <h2>Cadastrar departamentos!</h2>
+                <h2>Cadastrar Categorias!</h2>
                 <form action="cadastrocat" enctype="multipart/form-data" method="post" name="frmProduct">
 
                     <h2>Nome:</h2>
-                    <input type="text" name="nome">
+                    <input type="text" id="nome" name="nome" required>
                     <br>
                     <br>
 
-                    <input type="submit" value="Cadasrtar">
+                    <input type="submit" class="btao" value="Cadasrtar">
                 </form>
             </div>
         </main>
 
         <footer>
-            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️ / email: dedentep1@gmail.com</p>
+            <p> Todos Os Direitos Reservados de: Tiago Mattano N. ©️ / email: dedentep1@gmail.com</p>
 
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+        <script src="js/categoriaProdutos.js"></script>
     </body>
 </html>

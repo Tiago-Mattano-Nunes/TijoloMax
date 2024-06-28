@@ -15,7 +15,7 @@ import java.sql.DriverManager;
 public class Conexao {
      private static final String url = "jdbc:mysql://localhost:3306/ProjetoFinal?useSSL=false";
     private static final String user = "root";
-    private static final String senha = "";
+    private static final String senha = "Senha3";
     private static final String driver = "com.mysql.cj.jdbc.Driver";
     
     public static Connection conectar() {

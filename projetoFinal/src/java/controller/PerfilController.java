@@ -15,8 +15,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Dao.CadastroDAO;
-import model.Dao.CatDAO;
+import model.DAO.CadastroDAO;
+import model.DAO.CatDAO;
 import model.bean.Cadastro;
 import model.bean.Categorias;
 

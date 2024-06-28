@@ -5,7 +5,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="./assets/Preview__1_-removebg-preview.png">
+        <link rel="icon" href="./assets/Imagem_do_WhatsApp_de_2024-06-26_à_s__00.47.52_72c1f895-removebg-preview.png">
         <link rel="stylesheet" href="./styles/cadastro.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
               integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
@@ -19,26 +19,26 @@
                     <h2 class="title title-primary">Bem Vindo de Volta!</h2>
 
                     <p class="description description-primary">por favor, faça o login</p>
-                    <button id="signin" class="btn btn-primary">sign in</button>
+                    <button id="signin" class="btn btn-primary">Cadastro</button>
                 </div>    
                 <div class="second-column">
                     <h2 class="title title-second">Fazer Login</h2>
 
-                    <p class="description description-second">or use your email for registration:</p>
+                    <p class="description description-second">Preencha os campos:</p>
                     <form action="logar" class="form" enctype="multipart/form-data" method="get">   
 
                         <label class="label-input" for="">
                             <i class="fa-regular fa-envelope"></i>
-                            <input type="email" name="email" placeholder="Email" required>
+                            <input type="email" id="email" name="email" placeholder="Email" required>
                         </label>
 
                         <label class="label-input" for="">
                             <i class="fa-solid fa-lock"></i>
-                            <input type="password" name="senha" placeholder="Password" required>
+                            <input type="password" id="senha" name="senha" placeholder="Senha" maxlength="12" maxrequired>
                         </label>
 
 
-                        <button class="btn btn-second" type="submit">sign up</button>        
+                        <button class="btn btn-second" type="submit">Logar</button>        
                     </form>
                 </div>
             </div>
@@ -46,7 +46,7 @@
                 <div class="first-column">
                     <h2 class="title title-primary">Bem Vindo!</h2>
 
-                    <button id="signup" class="btn btn-primary">sign up</button>
+                    <button id="signup" class="btn btn-primary">login</button>
                 </div>
                 <div class="second-column">
                     <h2 class="title title-second">Por favor, cadastre-se</h2>
@@ -55,7 +55,7 @@
                     <form action="criar" class="form" enctype="multipart/form-data" method="post">
                         <label class="label-input" for="">
                             <i class="fa-solid fa-user"></i>
-                            <input name="nome" placeholder="Nome" required>
+                            <input name="nome" id="nome" placeholder="Nome" required>
                         </label>
                         <label class="label-input" for="">
                             <i class="fa-solid fa-id-card"></i>
@@ -72,11 +72,11 @@
 
                         <label class="label-input" for="">
                             <i class="fa-solid fa-lock"></i>
-                            <input type="password" name="senha" placeholder="Password" minlength="8" required>
+                            <input type="password" id="senha2" name="senha" placeholder="min 8 carac" minlength="8" maxlength="12"  required>
                         </label>
 
-                        <a class="password" href="#">forgot your password?</a>
-                        <button  type="submit"class="btn btn-second">sign in</button>
+                       
+                        <button  type="submit"class="btn btn-second">Cadastrar</button>
                     </form>
                 </div>
             </div> 

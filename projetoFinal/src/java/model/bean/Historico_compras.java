@@ -8,6 +8,8 @@ public class Historico_compras {
     private int idUsuario;
     private int idProdutos;
     private String nome;
+    private int endereco;
+    private byte[]imagem;
     private String descricao;
     private float preco;
     private int quantidade;
@@ -15,12 +17,22 @@ public class Historico_compras {
 
     public Historico_compras() {
     }
+    
+        public String getImagemBase64() {
+        if (imagem != null) {
+            return Base64.getEncoder().encodeToString(imagem);
+        } else {
+            return "";
+        }
+    }
 
-    public Historico_compras(int idCompra, int idUsuario, int idProdutos, String nome, String descricao, float preco, int quantidade, float total_preco) {
+    public Historico_compras(int idCompra, int idUsuario, int idProdutos, String nome, int endereco, byte[] imagem, String descricao, float preco, int quantidade, float total_preco) {
         this.idCompra = idCompra;
         this.idUsuario = idUsuario;
         this.idProdutos = idProdutos;
         this.nome = nome;
+        this.endereco = endereco;
+        this.imagem = imagem;
         this.descricao = descricao;
         this.preco = preco;
         this.quantidade = quantidade;
@@ -59,6 +71,22 @@ public class Historico_compras {
         this.nome = nome;
     }
 
+    public int getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(int endereco) {
+        this.endereco = endereco;
+    }
+
+    public byte[] getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(byte[] imagem) {
+        this.imagem = imagem;
+    }
+
     public String getDescricao() {
         return descricao;
     }
@@ -92,4 +120,5 @@ public class Historico_compras {
     }
 
    
+
 }

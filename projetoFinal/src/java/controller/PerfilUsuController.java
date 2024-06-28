@@ -14,10 +14,10 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Dao.CadastroDAO;
-import model.Dao.CatDAO;
-import model.Dao.EnderecosDAO;
-import model.Dao.Historico_comprasDAO;
+import model.DAO.CadastroDAO;
+import model.DAO.CatDAO;
+import model.DAO.EnderecosDAO;
+import model.DAO.Historico_comprasDAO;
 import model.bean.Cadastro;
 import model.bean.Categorias;
 import model.bean.Enderecos;
@@ -52,23 +52,23 @@ public class PerfilUsuController extends HttpServlet {
         }
 
         int idUsuario = -1;
-// Valor padrão, caso não seja possível extrair o ID do usuário do cookie
+
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("loginManter")) {
                 String cookieValue = cookie.getValue();
                 try {
                     idUsuario = Integer.parseInt(cookieValue);
                 } catch (NumberFormatException e) {
-                    // Em caso de falha na conversão, o idUsuario permanecerá como -1
-                    e.printStackTrace(); // ou outro tratamento de erro, se desejado
+                   
+                    e.printStackTrace(); 
                 }
-                break; // Encerra o loop assim que encontrar o cookie desejado
+                break; 
             }
         }
 
-        // Verifica se o idUsuario foi definido com sucesso
+        // Verifica se o idUsuario foi definido
         if (idUsuario != -1) {
-            // Use o idUsuario para listar o carrinho
+           
            
 
             EnderecosDAO enderecosdao = new EnderecosDAO();
@@ -94,6 +94,8 @@ public class PerfilUsuController extends HttpServlet {
             sout.println("window.location.href = './Cadastro';");
             sout.println("</script>");
         } else {
+            
+            //encaminha a requisicao pra pagina especificada
             String action = request.getServletPath();
             String nextPage = "/WEB-INF/jsp/perfilUsu.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);

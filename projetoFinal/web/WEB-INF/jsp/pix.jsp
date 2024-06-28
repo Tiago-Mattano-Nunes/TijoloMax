@@ -7,7 +7,7 @@
         <title>Pix</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.js"></script>
-        <link rel="icon" href="./assets/Preview__1_-removebg-preview.png">
+        <link rel="icon" href="./assets/Imagem_do_WhatsApp_de_2024-06-26_à_s__00.47.52_72c1f895-removebg-preview.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
               rel="stylesheet"
               integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
@@ -21,7 +21,7 @@
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <img src="./assets/Preview__1_-removebg-preview.png" alt="">
+                    <img src="./assets/Imagem do WhatsApp de 2024-06-26 à(s) 00.47.52_72c1f895.jpg" alt="">
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -40,12 +40,12 @@
 
                                 <a class="navbar-brand" aria-current="page" href="./Sobrenos"><i class="fa-solid fa-glasses"></i>Sobre Nós</a>
                             </li>
-                           
+
                             <li class="nav-item dropdown">
 
                                 <a class="navbar-brand dropdown-toggle" href="#" role="button"
                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-hand-point-up"></i>Departamentos
+                                    <i class="fa-solid fa-hand-point-up"></i>Categorias
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><div>                      
@@ -94,30 +94,23 @@
                 <form action="calcular" enctype="multipart/form-data" method="post" >
                     <h2>Adicionar endereço:</h2>
                     <h2>Estado:</h2>
-                    <input type="text" name="estado" id="imagem" required>
+                    <input type="text" id="estado" name="estado" id="imagem" required>
 
                     <h2>Cidade:</h2>
-                    <input type="text" name="cidade" required>
+                    <input type="text" id="cidade" name="cidade" required>
 
                     <h2>Rua:</h2>
-                    <input type="text" name="rua" required>
+                    <input type="text" id="rua" name="rua" required>
 
                     <h2>Cep:</h2>
-                    <input type="text" name="cep" required>
+                    <input type="text" id="cep" name="cep" maxlength="8" minlength="8" required>
 
                     <h2>Número:</h2>
-                    <input type="text" name="numero" required>
+                    <input type="text" id="numero" name="numero" maxlength="4" minlength="1"required>
                     <h2>Complemento:</h2>
-                    <input type="text" name="complemento" >
+                    <input type="text" id="complemento" name="complemento" >
 
-                    <div>         
-                        <h3>Endereço:</h3>
-                        <select class="selecionar" id="inputGroupSelect01" name="enderecos">
-                            <c:forEach items="${enderecos}" var="endereco">
-                                <option >Cidade: ${endereco.cidade} / Rua: ${endereco.rua} </option>
-                            </c:forEach>
-                        </select>
-                    </div>
+
                     <h3>Seu Código:</h3>
                     <br>    
                     <div id="qrcode"></div>
@@ -135,19 +128,16 @@
         </main>
 
         <footer>
-            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️ / email: dedentep1@gmail.com</p>
+            <p> Todos Os Direitos Reservados de: Tiago Mattano N. ©️ / email: dedentep1@gmail.com</p>
 
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-        <script>
-
-            var qr = qrcode(40, 'M');
-            qr.addData(Math.random().toString());
-            qr.make();
-            document.getElementById('qrcode').innerHTML = qr.createImgTag();
-        </script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+        <script src="js/pagamentos.js"></script>
+        <script src="js/gerarqr.js"></script>
     </body>
 </html>

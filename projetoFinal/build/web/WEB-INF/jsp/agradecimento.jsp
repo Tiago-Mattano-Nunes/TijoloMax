@@ -7,7 +7,7 @@
         <title>Obrigado por comprar conosco!</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.js"></script>
-        <link rel="icon" href="./assets/Preview__1_-removebg-preview.png">
+        <link rel="icon" href="./assets/Imagem_do_WhatsApp_de_2024-06-26_à_s__00.47.52_72c1f895-removebg-preview.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
               rel="stylesheet"
               integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
@@ -21,7 +21,7 @@
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <img src="./assets/Preview__1_-removebg-preview.png" alt="">
+                    <img src="./assets/Imagem do WhatsApp de 2024-06-26 à(s) 00.47.52_72c1f895.jpg" alt="">
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -46,7 +46,7 @@
                                 <i class="fa-solid fa-hand-point-up"></i>
                                 <a class="navbar-brand dropdown-toggle" href="#" role="button"
                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Departamentos
+                                    Categorias
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><div>                      
@@ -90,25 +90,21 @@
 
         <main>
             <div class="imagemM">
-                <img src="./assets/Preview__1_-removebg-preview.png" alt="">
+                 <img src="./assets/Imagem do WhatsApp de 2024-06-26 à(s) 00.47.52_72c1f895.jpg" alt="">
+                
             </div>
-            <h1>Muito Obrigado!</h1>
-            <p>Clique no Botão Abaixo para Voltar para a página inicial</p>
-            <a href="./Index" class="inicioBtn">Página inicial</a>
+            <h1>Muito obrigado por comprar no Fruits!</h1>
+            <p>Clique no botão abaixo para ver sua compra no perfil</p>
+            <a href="./PerfilUsu" class="inicioBtn">Perfil</a>
 
 
-            <p>Nossas redes sociais !</p>
-            <div class="social">
-                <a href="#"><img src="facebook.png" alt="Facebook"></a>
-                <a href="#"><img src="twitter.png" alt="Twitter"></a>
-                <a href="#"><img src="google.png" alt="Google"></a>
-            </div>
+           
             <br>
             <br>
         </main>
 
         <footer>
-            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️ / email: dedentep1@gmail.com</p>
+            <p> Todos Os Direitos Reservados de: Tiago Mattano N. ©️ / email: dedentep1@gmail.com</p>
 
         </footer>
 

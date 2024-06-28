@@ -19,10 +19,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import model.Dao.CadastroDAO;
-import model.Dao.CarrinhoDAO;
-import model.Dao.CatDAO;
-import model.Dao.ProdutosDAO;
+import model.DAO.CadastroDAO;
+import model.DAO.CarrinhoDAO;
+import model.DAO.CatDAO;
+import model.DAO.ProdutosDAO;
 import model.bean.Cadastro;
 import model.bean.Carrinho;
 import model.bean.Categorias;
@@ -37,18 +37,23 @@ public class PUnicoController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        //recupera valor
         CatDAO categoria = new CatDAO();
         List<Categorias> categorias = categoria.leia();
         request.setAttribute("categoria", categorias);
 
+        //faz aparecer pelo id
         ProdutosDAO produto = new ProdutosDAO();
         int id = Integer.parseInt(request.getParameter("id"));
         System.out.println(id);
         List<Produtos> produtos = produto.ler2(id);
         request.setAttribute("produtos", produtos);
+
         Cadastro cadastro = new Cadastro();
         CadastroDAO cadastrodao = new CadastroDAO();
-
+        //verifica se está logado recupera as informacoes do usuario
+        //verifica se tem um cookie chamado loginManter
         Cookie[] cookies = request.getCookies();
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("loginManter")) {
@@ -58,27 +63,27 @@ public class PUnicoController extends HttpServlet {
             }
         }
 
-        int idUsuario = -1; // Valor padrão, caso não seja possível extrair o ID do usuário do cookie
+        int idUsuario = -1; 
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("loginManter")) {
                 String cookieValue = cookie.getValue();
                 try {
                     idUsuario = Integer.parseInt(cookieValue);
                 } catch (NumberFormatException e) {
-                    // Em caso de falha na conversão, o idUsuario permanecerá como -1
-                    e.printStackTrace(); // ou outro tratamento de erro, se desejado
+                    
+                    e.printStackTrace(); 
                 }
-                break; // Encerra o loop assim que encontrar o cookie desejado
+                break; 
             }
         }
 
-        // Verifica se o idUsuario foi definido com sucesso
+        // Verifica se o idUsuario foi definido 
         if (idUsuario != -1) {
-            // Use o idUsuario para listar o carrinho
+           
             CarrinhoDAO carrinhoDAO = new CarrinhoDAO();
             List<Carrinho> carrinhos = carrinhoDAO.listar(idUsuario);
             request.setAttribute("carrinho", carrinhos);
-            
+
         } else {
             PrintWriter out = response.getWriter();
             out.println("<script type=\"text/javascript\">");
@@ -136,6 +141,7 @@ public class PUnicoController extends HttpServlet {
 
     }
 
+    //add no carrinho
     protected void carrinho(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter out = response.getWriter();

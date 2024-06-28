@@ -40,6 +40,11 @@ main .dropdown{
     text-align: center;
 
 }
+
+main img{
+    width: 150px;
+    height: 150px;
+}
 ul{
     display: flex;
 }
@@ -191,7 +196,13 @@ main img{
     border-radius: 100px;
 }
 
+main p{
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+    height: 58px;
 
+}
 .imagemM{
     place-items: center;
 }
@@ -199,7 +210,8 @@ main img{
 .inicioBtn {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #ff7f00;
+    background-color:  #d94d4d;
+
     color: white;
     text-decoration: none;
     border-radius: 5px;
@@ -224,12 +236,10 @@ footer {
     background-color: #D94D4D;
 }
 
-p{
+footer p{
     display: grid;
     justify-content: space-around;
     align-items: center;
-    height: 58px;
-
 }
 
 

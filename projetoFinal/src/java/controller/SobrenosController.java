@@ -15,8 +15,8 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Dao.CadastroDAO;
-import model.Dao.CatDAO;
+import model.DAO.CadastroDAO;
+import model.DAO.CatDAO;
 import model.bean.Cadastro;
 import model.bean.Categorias;
 
@@ -48,6 +48,9 @@ public class SobrenosController extends HttpServlet {
         CadastroDAO cadastrodao = new CadastroDAO();
 
         Cookie[] cookies = request.getCookies();
+        
+        //verifica se está logado recupera as informacoes do usuario
+        //verifica se tem um cookie chamado loginManter
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("loginManter")) {
 

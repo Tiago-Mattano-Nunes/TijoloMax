@@ -1,3 +1,5 @@
+//alternar entre os modos de "sign-in"  e "sign-up" 
+
 var btnSignin = document.querySelector("#signin");
 var btnSignup = document.querySelector("#signup");
 

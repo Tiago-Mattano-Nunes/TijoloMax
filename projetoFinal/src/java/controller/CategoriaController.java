@@ -15,9 +15,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Dao.CadastroDAO;
-import model.Dao.CatDAO;
-import model.Dao.ProdutosDAO;
+import model.DAO.CadastroDAO;
+import model.DAO.CatDAO;
+import model.DAO.ProdutosDAO;
 import model.bean.Cadastro;
 import model.bean.Categorias;
 import model.bean.Produtos;
@@ -49,6 +49,9 @@ public class CategoriaController extends HttpServlet {
         Cadastro cadastro = new Cadastro();
         CadastroDAO cadastrodao = new CadastroDAO();
         Cookie[] cookies = request.getCookies();
+        
+        //verifica se está logado recupera as informacoes do usuario
+        //verifica se tem um cookie chamado loginManter
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("loginManter")) {
 

@@ -15,8 +15,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Dao.CatDAO;
-import model.Dao.CategoriasDAO;
+import model.DAO.CatDAO;
+import model.DAO.CategoriasDAO;
 import model.bean.Categorias;
 
 @WebServlet(urlPatterns = "/cadastrocat")
@@ -33,6 +33,7 @@ public class CadastroCatController extends HttpServlet {
         List<Categorias> categorias = categoria.leia();
         request.setAttribute("categoria", categorias);
 
+        //emcaminha a requisicao pra pagiina especificada
         String nextPage = "/WEB-INF/jsp/cadastroCat.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
         dispatcher.forward(request, response);
@@ -66,13 +67,15 @@ public class CadastroCatController extends HttpServlet {
             throws ServletException, IOException {
         String action = request.getServletPath();
         if (action.equals("/cadastrocat")) {
-            user(request, response);
+            user(request, response); //processa requisições http
         } else {
             processRequest(request, response);
         }
 
     }
 
+    
+    //em resumo processa uma requisição para criar categorias
     protected void user(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         PrintWriter sout = response.getWriter();

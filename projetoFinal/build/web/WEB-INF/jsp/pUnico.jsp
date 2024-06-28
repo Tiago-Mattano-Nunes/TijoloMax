@@ -1,9 +1,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="model.bean.Produtos" %>
-<%@ page import="model.Dao.ProdutosDAO" %>
+<%@ page import="model.DAO.ProdutosDAO" %>
 <%@ page import="model.bean.Cadastro" %>
-<%@ page import="model.Dao.CadastroDAO" %>
+<%@ page import="model.DAO.CadastroDAO" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<fmt:setLocale value="pt_BR" />
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Produto</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="./assets/Preview__1_-removebg-preview.png">
+        <link rel="icon" href="./assets/Imagem_do_WhatsApp_de_2024-06-26_à_s__00.47.52_72c1f895-removebg-preview.png">
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                 integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
@@ -27,13 +30,15 @@
               crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/446d1f4167.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="./styles/pUnico.css">
+        <script src="sweetalert2.min.js"></script>
+        <link rel="stylesheet" href="sweetalert2.min.css"> 
     </head>
 
     <body>
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <img src="./assets/Preview__1_-removebg-preview.png" alt="">
+                    <img src="./assets/Imagem do WhatsApp de 2024-06-26 à(s) 00.47.52_72c1f895.jpg" alt="">
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -53,12 +58,12 @@
 
                                 <a class="navbar-brand" aria-current="page" href="./Sobrenos"><i class="fa-solid fa-glasses"></i>Sobre Nós</a>
                             </li>
-                           
+
                             <li class="nav-item dropdown">
 
                                 <a class="navbar-brand dropdown-toggle" href="#" role="button"
                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-hand-point-up"></i>Departamentos
+                                    <i class="fa-solid fa-hand-point-up"></i>Categorias
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><div>                      
@@ -102,20 +107,20 @@
             <div class="container">
                 <c:forEach items="${produtos}" var="produto">
                     <div id="produto_${produto.idProdutos}" class="product">
-                        <div class="produtoImagem">
+                        <div class="product-images">
                             <img id="mainImage" src="data:image/png;base64,${produto.imagemBase64}" alt="Imagem Principal">
 
                         </div>
-                        <div class="detalhes">
-                            <p class="nomeProduto"> ${produto.nomeProdutos}  </p>
-
-                            <div class="preco">
-                                <p id="preco">R$ ${produto.preco}</p>
+                        <div class="product-details">
+                            <h2 class="nomeProduto"> ${produto.nomeProdutos}  </h2>
+                            <p>${produto.descricao}</p>
+                            <div class="price">
+                                <p><fmt:formatNumber value="${produto.preco}" type="currency" minFractionDigits="2" maxFractionDigits="2" /></p>
                             </div>
 
                             <div class="qtdP">
                                 <p>Quantidade</p>
-                                <select id="qtdP">
+                                <select id="qtdP" required>
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -128,13 +133,16 @@
                                     <option value="10">10</option>
                                 </select>
                             </div>
+                            <input id="inputIvissivel" type="hidden" value="${produto.quantidade}">
+
                             <div class="actions">
-                                <button class="btn-comprar" type="submit" data-id="${produto.idProdutos}" data-descricao="${produto.descricao}" data-nome="${produto.nomeProdutos}" data-preco="${produto.preco}" data-idusuario="${usuario.idUsuario}" data-imagem="${produto.imagemBase64}"
+                                <button class="btn-comprar" type="submit" data-id="${produto.idProdutos}" data-descricao="${produto.descricao}" data-nome="${produto.nomeProdutos}" data-preco="${produto.preco}" data-idusuario="${abacate}" data-imagem="${produto.imagemBase64}"
                                         data-quantidade=1 id="comprar">
-                                    <i class="fa-solid fa-basket-shopping"></i>ADICIONAR ÀO CARRINHO</button>
+                                    <i class="fa-solid fa-basket-shopping"></i>ADICIONAR AO CARRINHO</button>
                             </div>
                         </div>
                     </div>
+
                 </c:forEach>
                 <form id="form-comprar" action="enviarFormulario" method="post" enctype="multipart/form-data" style="display: none;">
                     <input type="hidden" name="idProduto" id="idProduto">
@@ -153,7 +161,7 @@
         <br><br>
 
         <footer>
-            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️ / email: dedentep1@gmail.com</p>
+            <p> Todos Os Direitos Reservados de: Tiago Mattano N. ©️ / email: dedentep1@gmail.com</p>
 
         </footer>
 
@@ -164,6 +172,7 @@
                 integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>      
         <script src="js/produtos.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </body>
 
 </html>

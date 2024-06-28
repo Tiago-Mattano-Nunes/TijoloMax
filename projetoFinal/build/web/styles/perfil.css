@@ -1,3 +1,13 @@
+header button{
+
+    background-color: white !important;
+
+}
+
+header i{
+    color: white;
+}
+
 
 .d-flex {
     width: 330px;
@@ -7,7 +17,7 @@
 }
 
 .nav-item {
-    margin-left: 50px;
+
     align-items: center;
     display: flex;
 }
@@ -35,18 +45,14 @@ main .dropdown{
     text-align: center;
 
 }
+
+
 ul{
     display: flex;
 }
 .classi{
     display: flex;
 }
-
-
-
-
-
-
 
 
 .usuarios {
@@ -56,52 +62,45 @@ ul{
     padding: 20px;
     background-color: #f4f4f4;
     border-radius: 8px;
-    margin: 20px auto;
     max-width: 1200px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: scroll;
-    width: 800px;
+    width: 600px;
 }
-
 .usuario {
     background-color: #ffffff; 
     padding: 15px; 
-    border-radius: 8px; /* Bordas arredondadas */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
-    flex: 1 1 200px; /* Ajuste flexível da largura dos produtos */
-    min-width: 200px; /* Largura mínima */
-    max-width: 300px; /* Largura máxima */
-    border: 1px solid #ddd; /* Borda fina */
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    flex: 1 1 200px; 
+    min-width: 200px;
+    max-width: 600px; 
+    border: 1px solid #ddd; 
 }
 
 .usuario p {
-    margin: 5px 0; /* Margem entre os parágrafos */
-    color: #555; /* Cor do texto */
-    font-weight: bold; /* Texto em negrito */
+    margin: 5px 0;
+    color: #555; 
+    font-weight: bold;
 }
 
 .usuario h2, .usuario h3 {
-    margin: 5px 0; /* Margem entre os títulos */
-    color: #333; /* Cor do texto dos títulos */
+    margin: 5px 0; 
+    color: #333; 
 }
 
 .usuario h2 {
-    font-size: 18px; /* Tamanho da fonte do título principal */
+    font-size: 18px; 
 }
 
 .usuario h3 {
-    font-size: 16px; /* Tamanho da fonte do subtítulo */
+    font-size: 16px; 
 }
 
 
 
 
 
-header button{
-
-    background-color: white !important;
-
-}
 
 .btn-outline-success {
     --bs-btn-color: #198754;
@@ -129,9 +128,6 @@ header button{
     background-color: #D94D4D !important;
 }
 
-header i{
-    color: white;
-}
 
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
     color: rgb(255 255 255);
@@ -186,6 +182,34 @@ footer p {
     display: grid;
     justify-content: space-around;
     align-items: center;
-    height: 58px;
+
+
+}
+@media (max-width: 768px) {
+
+    .usuarios {
+        display: grid;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 8px;
+        max-width: 1200px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        overflow: scroll;
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .usuario {
+        background-color: #ffffff; 
+        padding: 15px; 
+        border-radius: 8px; 
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+        flex: 1 1 200px; 
+        min-width: 200px;
+        max-width: 300px; 
+        border: 1px solid #ddd; 
+    }
 
 }

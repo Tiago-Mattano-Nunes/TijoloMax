@@ -13,7 +13,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Dao.CatDAO;
+import model.DAO.CatDAO;
 import model.bean.Categorias;
 
 /**
@@ -26,10 +26,13 @@ public class AgradecimentoController extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //recupera dados do banco e mostra
         CatDAO categoria = new CatDAO();
         List<Categorias> categorias = categoria.leia();
         request.setAttribute("categoria", categorias);
 
+        
+        //emcaminha a requisicao pra pagina especificada
         String nextPage = "/WEB-INF/jsp/agradecimento.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
         dispatcher.forward(request, response);

@@ -1,13 +1,20 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<fmt:setLocale value="pt_BR" />
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Checkout</title>
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0">
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="./assets/Preview__1_-removebg-preview.png">
+        <link rel="icon" href="./assets/Imagem_do_WhatsApp_de_2024-06-26_à_s__00.47.52_72c1f895-removebg-preview.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
               rel="stylesheet"
               integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
@@ -21,7 +28,7 @@
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <img src="./assets/Preview__1_-removebg-preview.png" alt="">
+                   <img src="./assets/Imagem do WhatsApp de 2024-06-26 à(s) 00.47.52_72c1f895.jpg" alt="">
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -41,12 +48,12 @@
 
                                 <a class="navbar-brand" aria-current="page" href="./Sobrenos"><i class="fa-solid fa-glasses"></i>Sobre Nós</a>
                             </li>
-                          
+
                             <li class="nav-item dropdown">
 
                                 <a class="navbar-brand dropdown-toggle" href="#" role="button"
                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-hand-point-up"></i>Departamentos
+                                    <i class="fa-solid fa-hand-point-up"></i>Categorias
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><div>                      
@@ -83,85 +90,69 @@
             <br>
 
             <div class="voltar">
-                <a href="./Index"><i class="fa-solid fa-chevron-left">Voltar</i></a>
+                <a href="./Carrinho"><i class="fa-solid fa-chevron-left">Voltar</i></a>
             </div>
             <br><br>
 
         </header>
 
         <main>
-
-
-
-
-
             <div class="pagamento">
                 <h1>Forma de pagamento</h1>
-                <a href="./CartaoC">
-                    <div class="pagamentoOpcao">  
-
+                <c:if test="${not empty carrinhos}">
+                    <a href="./CartaoC" class="pagamentoOpcao">
                         <div class="opcao">
                             <i class="icon">💳</i> Cartão de crédito
-
                         </div>
-
-                    </div>
-                </a>
-                <a href="./CartaoDebito"> 
-                    <div class="pagamentoOpcao">
+                    </a>
+                    <a href="./CartaoDebito" class="pagamentoOpcao">
                         <div class="opcao">
-                            <i class="icon">💵</i> Cartão de débito 
-
+                            <i class="icon">💵</i> Cartão de débito
                         </div>
-                    </div>
-                </a>  
-                <a href="./Pix">   
-                    <div class="pagamentoOpcao">
-                        
+                    </a>
+                    <a href="./Pix" class="pagamentoOpcao">
                         <div class="opcao">
-                            <i class="icon">💰</i> Pix                      
-                        </div>          
-                    </div>
-                </a> 
-
+                            <i class="icon">💰</i> Pix
+                        </div>
+                    </a>
+                </c:if>
             </div>
-            
-            
-            
-            
-            
-
 
             <div class="cart1">
                 <h1>Carrinho de Compras</h1>
-                <div class="cart">
-                    <div class="cart2">
-                        <c:forEach items="${carrinhos}" var="carrinho">
-                            <div class="cart3">
-                                <img src="data:image/png;base64,${carrinho.imagemBase64}" alt="${carrinho.nomeCarrinho}">
-                                <div class="itens">
-                                    <h2>${carrinho.nomeCarrinho}</h2>
-                                    <p>Quantidade:${carrinho.quantidadeCarrinho}</p>
-                                    <h3>R$ ${carrinho.precoCarrinho}</h3>
-                                    <p class="price"> </p>
+                <c:if test="${not empty carrinhos}">
+                    <div class="cart">
+                        <div class="cart2">
+                            <c:forEach items="${carrinhos}" var="carrinho">
+                                <div class="cart3">
+                                    <img src="data:image/png;base64,${carrinho.imagemBase64}" alt="${carrinho.nomeCarrinho}">
+                                    <div class="itens">
+                                        <h2>${carrinho.nomeCarrinho}</h2>
+                                        <p>Quantidade: ${carrinho.quantidadeCarrinho}</p>
+                                        <p>Descrição:${carrinho.descricaoCarrinho}</p>
+                                        <h3><fmt:formatNumber value="${carrinho.precoCarrinho}" type="currency" minFractionDigits="2" maxFractionDigits="2"/></h3>
+                                        <p class="price"></p>
+                                    </div>
                                 </div>
-
-                            </div> </c:forEach> 
+                            </c:forEach>
                             <div class="resumo">
-                                <h2>Resumo</h2>
-                                <p>Total: <span> <c:out value="${totalPreco}"/> </span></p>
-
-
+                                <h2>Total: </h2>
+                                <span><fmt:formatNumber value="${totalPreco}" type="currency" minFractionDigits="2" maxFractionDigits="2"/></span>
+                            </div>
                         </div>
-                    </div>                                
-                </div>
+                    </div>
+                </c:if>
+                <c:if test="${empty carrinhos}">
+                    <p>Carrinho vazio.</p>
+                </c:if>
             </div>
+
 
         </main>
 
 
         <footer>
-            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️ / email: dedentep1@gmail.com</p>
+            <p> Todos Os Direitos Reservados de: Tiago Mattano N. ©️ / email: dedentep1@gmail.com</p>
 
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -169,6 +160,5 @@
         crossorigin="anonymous"></script>
         <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.0/mdb.umd.min.js"></script>
-        <script src="js/pagamento.js"></script>
     </body>
 </html>

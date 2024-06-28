@@ -8,7 +8,7 @@
 }
 
 .nav-item {
-    margin-left: 50px;
+   
     align-items: center;
     display: flex;
 }
@@ -134,14 +134,7 @@ header img{
 button i{
     color: black;
 }
-footer {
-    display: grid;
-    justify-content: space-around;
-    height: 58px;
-    align-items: center;
-    color: white;
-    background-color: #D94D4D;
-}
+
 
 header p{
     display: grid;
@@ -170,6 +163,5 @@ footer p{
     display: grid;
     justify-content: space-around;
     align-items: center;
-    height: 58px;
 
 }

@@ -4,9 +4,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Sobre</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="./assets/Preview__1_-removebg-preview.png">
+        <link rel="icon" href="./assets/Imagem_do_WhatsApp_de_2024-06-26_à_s__00.47.52_72c1f895-removebg-preview.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
               crossorigin="anonymous">
@@ -17,7 +17,7 @@
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <img src="./assets/Preview__1_-removebg-preview.png" alt="">
+                    <img src="./assets/Imagem do WhatsApp de 2024-06-26 à(s) 00.47.52_72c1f895.jpg" alt="">
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -41,7 +41,7 @@
 
                                 <a class="navbar-brand dropdown-toggle" href="#" role="button"
                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-hand-point-up"></i>Departamentos
+                                    <i class="fa-solid fa-hand-point-up"></i>Categorias
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><div>                      
@@ -89,14 +89,14 @@
 
         <main>
             <p>
-                Bem-vindo ao TijoloMax, seu destino online para uma experiência de compras excepcional. Desde a nossa fundação, buscamos revolucionar a forma como você compra e interage com o mundo dos produtos e serviços.
+                Bem-vindo ao Fruits, seu hortifruti online. Especializado em frutas verduras e legumes, o Fruits possui os produtos de melhor qualidade do mercado.
 
-                No TijoloMax, entendemos que a vida é movida pela conveniência e pela busca incessante por excelência. É por isso que nos dedicamos a oferecer uma plataforma que não apenas simplifica sua jornada de compras, mas também a enriquece com opções diversificadas e oportunidades emocionantes.
+                Trabalhando sempre com o que há de melhor para oferecer uma boa experiência de compra para o usuário.
             </p>
         </main>
 
         <footer>
-            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️ / email: dedentep1@gmail.com</p>
+            <p> Todos Os Direitos Reservados de: Tiago Mattano N. ©️ / email: dedentep1@gmail.com</p>
 
         </footer>
 

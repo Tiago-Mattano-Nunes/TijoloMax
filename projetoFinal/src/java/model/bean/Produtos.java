@@ -14,7 +14,6 @@ import java.util.Base64;
 public class Produtos {
 
     private int idProdutos;
-    private int idCategoria;
     private String nomeProdutos;
     private int categoria;
     private String descricao;
@@ -33,9 +32,8 @@ public class Produtos {
         }
     }
 
-    public Produtos(int idProdutos, int idCategoria, String nomeProdutos, int categoria, String descricao, float preco, int quantidade, byte[] imagem) {
+    public Produtos(int idProdutos, String nomeProdutos, int categoria, String descricao, float preco, int quantidade, byte[] imagem) {
         this.idProdutos = idProdutos;
-        this.idCategoria = idCategoria;
         this.nomeProdutos = nomeProdutos;
         this.categoria = categoria;
         this.descricao = descricao;
@@ -50,14 +48,6 @@ public class Produtos {
 
     public void setIdProdutos(int idProdutos) {
         this.idProdutos = idProdutos;
-    }
-
-    public int getIdCategoria() {
-        return idCategoria;
-    }
-
-    public void setIdCategoria(int idCategoria) {
-        this.idCategoria = idCategoria;
     }
 
     public String getNomeProdutos() {
@@ -108,6 +98,5 @@ public class Produtos {
         this.imagem = imagem;
     }
 
-    
-    
+   
 }

@@ -14,8 +14,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Dao.CatDAO;
-import model.Dao.EstoqueDAO;
+import model.DAO.CatDAO;
+import model.DAO.EstoqueDAO;
 import model.bean.Categorias;
 import model.bean.Estoque;
 
@@ -40,6 +40,7 @@ public class EstoqueController extends HttpServlet {
         List<Categorias> categorias = categoria.leia();
         request.setAttribute("categoria", categorias);
 
+        //recupera dados do banco e mostra
         EstoqueDAO produto = new EstoqueDAO();
         List<Estoque> estoques = produto.ler();
         request.setAttribute("estoque", estoques);

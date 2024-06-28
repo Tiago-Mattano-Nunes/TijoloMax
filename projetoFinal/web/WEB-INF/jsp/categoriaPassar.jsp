@@ -1,7 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ page import="model.bean.Produtos" %>
-<%@ page import="model.Dao.ProdutosDAO" %>
+<%@ page import="model.DAO.ProdutosDAO" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<fmt:setLocale value="pt_BR"/>
 <!DOCTYPE html>
 <html>
 
@@ -9,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Categoria</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="./assets/Preview__1_-removebg-preview.png">
+        <link rel="icon" href="./assets/Imagem_do_WhatsApp_de_2024-06-26_à_s__00.47.52_72c1f895-removebg-preview.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
               rel="stylesheet"
               integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
@@ -23,7 +26,7 @@
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <img src="./assets/Preview__1_-removebg-preview.png" alt="">
+                    <img src="./assets/Imagem do WhatsApp de 2024-06-26 à(s) 00.47.52_72c1f895.jpg" alt="">
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -43,12 +46,12 @@
 
                                 <a class="navbar-brand" aria-current="page" href="./Sobrenos"><i class="fa-solid fa-glasses"></i>Sobre Nós</a>
                             </li>
-                            
+
                             <li class="nav-item dropdown">
 
                                 <a class="navbar-brand dropdown-toggle" href="#" role="button"
                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-hand-point-up"></i>Departamentos
+                                    <i class="fa-solid fa-hand-point-up"></i>Categorias
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><div>                      
@@ -84,7 +87,7 @@
             <br>
             <br>
 
-            <span>${usuario.idUsuario}</span>
+
             <div class="voltar">
                 <a href="./Index"><i class="fa-solid fa-chevron-left">Voltar</i></a>
             </div>
@@ -104,7 +107,9 @@
 
                             <img src="data:image/png;base64,${produto.imagemBase64}" alt="${produto.nomeProdutos}">
                             <h2>${produto.nomeProdutos}</h2>
-                            <p>R$ ${produto.preco}</p>
+                            <p>${produto.descricao}</p>
+                            <p><fmt:formatNumber value="${produto.preco}" type="currency" minFractionDigits="2" maxFractionDigits="2" /></p>
+
                             <a href="./PUnico?id=${produto.idProdutos}"><input type="submit"
                                                                                value="comprar"></a>
                         </div>
@@ -113,7 +118,7 @@
             </div>
         </main>
         <footer>
-            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️ / email: dedentep1@gmail.com</p>
+            <p> Todos Os Direitos Reservados de: Tiago Mattano N. ©️ / email: dedentep1@gmail.com</p>
 
         </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

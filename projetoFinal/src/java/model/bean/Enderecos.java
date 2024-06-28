@@ -5,7 +5,7 @@
  */
 package model.bean;
 
-import model.Dao.EnderecosDAO;
+import model.DAO.EnderecosDAO;
 
 /**
  *

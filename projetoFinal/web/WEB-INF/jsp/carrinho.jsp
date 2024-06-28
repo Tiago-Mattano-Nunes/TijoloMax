@@ -1,5 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<fmt:setLocale value="pt_BR"/>
 <!DOCTYPE html>
 <html>
 
@@ -8,7 +11,7 @@
         <title>Carrinho</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="icon" href="./assets/Preview__1_-removebg-preview.png">
+        <link rel="icon" href="./assets/Imagem_do_WhatsApp_de_2024-06-26_à_s__00.47.52_72c1f895-removebg-preview.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
               crossorigin="anonymous">
@@ -20,7 +23,7 @@
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary">
                 <div class="container-fluid">
-                    <img src="./assets/Preview__1_-removebg-preview.png" alt="">
+                    <img src="./assets/Imagem do WhatsApp de 2024-06-26 à(s) 00.47.52_72c1f895.jpg" alt="">
 
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -44,7 +47,7 @@
 
                                 <a class="navbar-brand dropdown-toggle" href="#" role="button"
                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="fa-solid fa-hand-point-up"></i>Departamentos
+                                    <i class="fa-solid fa-hand-point-up"></i>Categorias
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><div>                      
@@ -80,12 +83,12 @@
             <br>
             <br>
 
-            <span>
-                ${usuario.idUsuario}
-            </span>
+
             <div class="voltar">
                 <a href="./Index"><i class="fa-solid fa-chevron-left">Voltar</i></a>
             </div>
+
+
             <br> <br>
         </header>
 
@@ -104,10 +107,12 @@
                                 <div class="itens">
                                     <h2>${carrinho.nomeCarrinho}</h2>
                                     <p>Quantidade:${carrinho.quantidadeCarrinho}</p>
-                                    <h3>R$ ${carrinho.precoCarrinho}</h3>                                      
+                                    <p>Descrição:${carrinho.descricaoCarrinho}</p>
+                                    <h3><fmt:formatNumber value="${carrinho.precoCarrinho}" type="currency" minFractionDigits="2" maxFractionDigits="2" /></h3>  
+
                                     <p class="preco"> </p>
                                 </div>
-                                <form id="formDelet-${carrinho.idCarrinho}" action="enviarFormularioDelete" method="post" enctype="multipart/form-data">
+                                <form id="formDelet-${carrinho.idCarrinho}" action="deletarCarrinho" method="post" enctype="multipart/form-data">
                                     <input type="hidden" name="action" value="delete">
                                     <input type="hidden" name="idCarinho" value="${carrinho.idCarrinho}">
                                     <button type="submit" href="./Carrinho">Excluir Item</button>
@@ -116,16 +121,19 @@
                             </div> 
                         </c:forEach> 
                         <div class="resumo">
-                            <h2>Resumo</h2>
-                            <p>Total: <span id="total_Preco"> <c:out value="${totalPreco}"/> </span></p>
+                            <h2>Total:</h2>
+                            <p> <span id="total_Preco"><fmt:formatNumber value="${totalPreco}" type="currency" minFractionDigits="2" maxFractionDigits="2" /></span></p>
+
                             <c:choose>
                                 <c:when test="${empty carrinhos}">
                                     <a href="#" class="btnn-comprar nao" onclick="return false;">Comprar</a>
                                 </c:when>
                                 <c:otherwise>
-                                    <a href="./Pagamento" class="btnn-comprar">Comprar</a>
+                                  <a href="./Pagamento" class="btnn-comprar" >Comprar</a>
+
                                 </c:otherwise>
                             </c:choose>
+
 
 
                         </div>
@@ -149,14 +157,14 @@
         </main>
 
         <footer>
-            <p> Todos Os Direitos Reservados de: Tiago Mattano Nunes dos Santos ©️ / email: dedentep1@gmail.com</p>
+            <p> Todos Os Direitos Reservados de: Tiago Mattano N. ©️ / email: dedentep1@gmail.com</p>
 
         </footer>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
                 integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-        <script src="./js/deletaCarrinho.js"></script>
+        <script src=".js/deletaCarrinho.js"></script>
     </body>
 
-</html>
+</html> 

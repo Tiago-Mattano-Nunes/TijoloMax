@@ -14,7 +14,7 @@ header button{
 
 }
 .nav-item {
-    margin-left: 50px;
+
     align-items: center;
     display: flex;
 }
@@ -47,7 +47,7 @@ header button{
 
 
 .voltar{
-    width: 80%;
+    width: 20%;
     margin-left: 2%;
 }
 .voltar i{
@@ -136,19 +136,21 @@ button i{
     display: flex;
     margin-left: auto;
     margin-right: auto;
+
+
 }
 
 .enderecos {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Espaçamento entre os endereços */
+    gap: 20px; 
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 500px;
+    width: 400px;
     height: 550px;
-    margin-left: 100px;
+    margin-left: 74px;
     overflow: scroll;
 }
 
@@ -163,8 +165,8 @@ button i{
 }
 
 .informacoes {
-    flex: 1 1 30%; /* Permite que os detalhes se ajustem à largura disponível */
-    min-width: 150px; /* Define uma largura mínima */
+    flex: 1 1 30%; 
+    min-width: 150px; 
 }
 
 .informacoes h3 {
@@ -228,7 +230,6 @@ h1 {
 
 .compras-2 h2 {
     margin: 0;
-    font-size: 18px;
 }
 
 .compras-2 p {
@@ -347,6 +348,74 @@ main p{
 }
 
 
+
+
+
+footer {
+    display: grid;
+    justify-content: space-around;
+    height: 58px;
+    align-items: center;
+    color: white;
+    background-color: #D94D4D;
+}
+
+footer p{
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+
+
+}
+
+@media (max-width: 1200px) {
+    .meio {
+        display: grid;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .perfilu {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 700px;
+        display: flex;
+        flex-direction: column;
+        height: 550px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .enderecos {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 700px;
+        height: 550px;
+        margin-left: auto;
+        overflow: scroll;
+        margin-right: auto;
+    }
+
+    .compras-tudo {
+        width: 700px;
+        height: 550px;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-left: auto;
+        margin-right: auto;
+        overflow: scroll;
+    }
+}
+
 @media (max-width: 768px) {
     main {
         display: grid;
@@ -392,23 +461,4 @@ main p{
         margin-right: auto;
         overflow: scroll;
     }
-}
-
-
-
-footer {
-    display: grid;
-    justify-content: space-around;
-    height: 58px;
-    align-items: center;
-    color: white;
-    background-color: #D94D4D;
-}
-
-footer p{
-    display: grid;
-    justify-content: space-around;
-    align-items: center;
-    height: 58px;
-
 }

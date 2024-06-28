@@ -8,7 +8,7 @@
 }
 
 .nav-item {
-    margin-left: 50px;
+
     align-items: center;
     display: flex;
 }
@@ -181,22 +181,9 @@ header img{
 button i{
     color: black;
 }
-footer {
-    display: grid;
-    justify-content: space-around;
-    height: 58px;
-    align-items: center;
-    color: white;
-    background-color: #D94D4D;
-}
 
-p{
-    display: grid;
-    justify-content: space-around;
-    align-items: center;
-    height: 58px;
 
-}
+
 
 main{
     display: grid;
@@ -204,9 +191,28 @@ main{
     text-align: center;
     margin-bottom: 425px
 }
-main input {
-    width: 100px;
-    border-radius: 10px;
+main p{
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+    height: 58px;
+
+}
+.btao {
+    width: 160px;
+    height: 40px;
+    margin-top: 10px;
+    border: 2px solid #d94d4d;
+    background-color: #d94d4d;
+    color: white;
+    transition: all 0.3s ease-in-out 0.1s;
+}
+
+.btao:hover {
+    background-color: #ffffff;
+    color: red;
+    border: 2px solid #d94d4d;
+
 }
 
 .cat{
@@ -233,13 +239,14 @@ main label {
 
 main input[type="text"],
 main input[type="file"],
+
 main select {
     width: 100%;
     padding: 8px;
     margin-bottom: 5px;
-    border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    border: 2px solid black;
 }
 
 main button {
@@ -255,4 +262,20 @@ main button {
 
 main button:hover {
     background-color: #0056b3;
+}
+
+footer {
+    display: grid;
+    justify-content: space-around;
+    height: 58px;
+    align-items: center;
+    color: white;
+    background-color: #D94D4D;
+}
+
+footer p{
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+
 }

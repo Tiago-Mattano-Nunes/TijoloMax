@@ -14,9 +14,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Dao.CadastroDAO;
-import model.Dao.CarrinhoDAO;
-import model.Dao.CatDAO;
+import model.DAO.CadastroDAO;
+import model.DAO.CarrinhoDAO;
+import model.DAO.CatDAO;
 import model.bean.Cadastro;
 import model.bean.Carrinho;
 import model.bean.Categorias;
@@ -40,23 +40,23 @@ public class PagamentoController extends HttpServlet {
         request.setAttribute("categoria", categorias);
 
         Cookie[] cookies3 = request.getCookies();
-        int idUsuario = 0; // Valor padrão, caso não seja possível extrair o ID do usuário do cookie
+        int idUsuario = 0; 
         for (Cookie cookie : cookies3) {
             if (cookie.getName().equals("loginManter")) {
                 String cookieValue = cookie.getValue();
                 try {
                     idUsuario = Integer.parseInt(cookieValue);
                 } catch (NumberFormatException e) {
-                    // Em caso de falha na conversão, o idUsuario permanecerá como -1
-                    e.printStackTrace(); // ou outro tratamento de erro, se desejado
+                  
+                    e.printStackTrace();
                 }
-                break; // Encerra o loop assim que encontrar o cookie desejado
+                break; 
             }
         }
 
-        // Verifica se o idUsuario foi definido com sucesso
+        // Verifica se o idUsuario foi definido 
         if (idUsuario != -1) {
-            // Use o idUsuario para listar o carrinho
+            
             CarrinhoDAO carrinhoDAO = new CarrinhoDAO();
             List<Carrinho> carrinhos = carrinhoDAO.listar(idUsuario);
             request.setAttribute("carrinhos", carrinhos);
@@ -72,6 +72,8 @@ public class PagamentoController extends HttpServlet {
         Cadastro cadastro = new Cadastro();
         CadastroDAO cadastrodao = new CadastroDAO();
 
+        //verifica se está logado recupera as informacoes do usuario
+        //verifica se tem um cookie chamado loginManter
         Cookie[] cookies = request.getCookies();
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("loginManter")) {
@@ -81,20 +83,7 @@ public class PagamentoController extends HttpServlet {
             }
         }
 
-        /*
-        if (endereco == null || endereco.getIdEndereco() <= 0) {
-            PrintWriter sout = response.getWriter();
-            sout.println("<script type=\"text/javascript\">");
-            sout.println("alert('Por favor, Adicione um endereço.');");
-            sout.println("window.location.href = './Carrinho';");
-            sout.println("</script>");
-        } else {
-            String action = request.getServletPath();
-            String nextPage = "/WEB-INF/jsp/pagamento.jsp";
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
-            dispatcher.forward(request, response);
-        }
-         */
+       
         String action = request.getServletPath();
         String nextPage = "/WEB-INF/jsp/pagamento.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);

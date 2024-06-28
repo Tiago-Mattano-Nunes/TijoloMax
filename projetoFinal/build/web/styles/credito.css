@@ -8,7 +8,7 @@
 }
 
 .nav-item {
-    margin-left: 50px;
+
     align-items: center;
     display: flex;
 }
@@ -191,16 +191,17 @@ header img{
 
 .btn-comprar {
     width: 100%;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2em;
+    height: 40px;
     margin-top: 10px;
-    text-align: center;
-    text-decoration: none;
-}
+    border: black;
+    background-color: #d94d4d;
+    color: white;
+    transition: all 0.3s ease-in-out 0.1s;
 
+}
+.btn-comprar:hover{
+    background-color: #f18282;
+}
 main h3:first-of-type {
     margin-bottom: 20px;
     font-size: 24px;
@@ -266,6 +267,16 @@ button:hover {
 button i{
     color: black;
 }
+
+
+main p{
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+    height: 58px;
+
+}
+
 footer {
     display: grid;
     justify-content: space-around;
@@ -275,11 +286,8 @@ footer {
     background-color: #D94D4D;
 }
 
-p{
+footer p{
     display: grid;
     justify-content: space-around;
     align-items: center;
-    height: 58px;
-
 }
-

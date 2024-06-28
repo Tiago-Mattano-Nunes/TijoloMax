@@ -19,16 +19,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
-import model.Dao.CadastroDAO;
-import model.Dao.CarrinhoDAO;
-import model.Dao.CatDAO;
-import model.Dao.EnderecosDAO;
+import model.DAO.CadastroDAO;
+import model.DAO.CarrinhoDAO;
+import model.DAO.CatDAO;
+import model.DAO.EnderecosDAO;
 import model.bean.Cadastro;
 import model.bean.Carrinho;
 import model.bean.Categorias;
 import model.bean.Enderecos;
 
-@WebServlet(urlPatterns = {"/calcular", "/enviarFormularioDelete"})
+@WebServlet(urlPatterns = {"/calcular", "/deletarCarrinho"})
 @MultipartConfig
 public class CarrinhoController extends HttpServlet {
 
@@ -58,41 +58,38 @@ public class CarrinhoController extends HttpServlet {
         CadastroDAO cadastrodao = new CadastroDAO();
         Cookie[] cookies = request.getCookies();
 
-        //verifica se está logado
+        //verifica se está logado recupera as informacoes do usuario
+        //verifica se tem um cookie chamado loginManter
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("loginManter")) {
 
                 cadastro = cadastrodao.pegarPorId(Integer.parseInt(cookie.getValue()));
-                request.setAttribute("usuario", cadastro);
+                request.setAttribute("usuario", cadastro);//passa as informações do usuario
             }
         }
 
         //único do usuário
-        int idUsuario = 0; // Valor padrão, caso não seja possível extrair o ID do usuário do cookie
+        int idUsuario = 0;
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("loginManter")) {
                 String cookieValue = cookie.getValue();
                 try {
                     idUsuario = Integer.parseInt(cookieValue);
                 } catch (NumberFormatException e) {
-                    // Em caso de falha na conversão, o idUsuario permanecerá como -1
-                    e.printStackTrace(); // ou outro tratamento de erro, se desejado
+
+                    e.printStackTrace();
                 }
-                break; // Encerra o loop assim que encontrar o cookie desejado
+                break;
             }
         }
 
-        // Verifica se o idUsuario foi definido com sucesso
         if (idUsuario != -1) {
-            // Use o idUsuario para listar o carrinho
+            // Listar o que esta a baixo pelo id so usuario
             CarrinhoDAO carrinhoDAO = new CarrinhoDAO();
             List<Carrinho> carrinhos = carrinhoDAO.listar(idUsuario);
             request.setAttribute("carrinhos", carrinhos);
             float totalPreco = produtoDao.calcular(idUsuario);
             request.setAttribute("totalPreco", totalPreco);
-
-            List<Enderecos> objProduto = objProdutoDao.listarEndereco(idUsuario);
-            request.setAttribute("enderecos", objProduto);
 
         } else {
             PrintWriter out = response.getWriter();
@@ -107,6 +104,8 @@ public class CarrinhoController extends HttpServlet {
             sout.println("window.location.href = './Cadastro';");
             sout.println("</script>");
         } else {
+
+            //encaminha a requisição para a paina jsp especificada
             String action = request.getServletPath();
             String url = "/WEB-INF/jsp/carrinho.jsp";
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
@@ -146,9 +145,9 @@ public class CarrinhoController extends HttpServlet {
         String action = request.getServletPath();
         if (action.equals("/calcular")) {
             user(request, response);
-        } else if (action.equals("/enviarFormularioDelete")) {
-            deletar(request, response);
-        } else{
+        } else if (action.equals("/deletarCarrinho")) {
+            deletar(request, response);//lida com a requisicao
+        } else {
             processRequest(request, response);
         }
 
@@ -164,31 +163,31 @@ public class CarrinhoController extends HttpServlet {
         objProduto.setEstado(request.getParameter("estado"));
         objProduto.setComplemento(request.getParameter("complemento"));
         objProduto.setIdUsuario(Integer.parseInt(request.getParameter("id")));
+        
+        
 
-        //Cookie enderecoCookie = new Cookie("enderecoManter", Integer.toString(idEndereco));
-        //response.addCookie(enderecoCookie);
         objProdutoDao.create(objProduto);
-        //response.sendRedirect("./Carrinho?id=" + Integer.parseInt(request.getParameter("id")));
+
         response.sendRedirect("./Agradecimento");
 
     }
 
+    //lida com a exclusao
+    //preocessa a requisicao post
     protected void deletar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getParameter("action");
+        String action = request.getParameter("action"); //recebe o parametro action, valor delete
 
         if (action != null && action.equals("delete")) {
-         
+            response.sendRedirect("./Carrinho");
+
             int idCarrinho = Integer.parseInt(request.getParameter("idCarinho"));
             CarrinhoDAO carrinho = new CarrinhoDAO();
-         
+
             carrinho.deletar(idCarrinho);
 
-            
         }
     }
+
+   
 }
-
-
-
-

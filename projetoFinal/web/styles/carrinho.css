@@ -8,7 +8,7 @@
 }
 
 .nav-item {
-    margin-left: 50px;
+
     align-items: center;
     display: flex;
 }
@@ -16,10 +16,6 @@
 .nav-link {
     color: black;
 
-}
-
-a {
-    color: black;
 }
 
 
@@ -56,6 +52,28 @@ main {
 
 }
 
+main a{
+    text-decoration: none;
+    color: black;
+}
+
+main form button{
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    border: #d94d4d;
+    background-color: #d94d4d;
+    color: white;
+    transition: all 0.3s ease-in-out 0.1s;
+    border-radius: 15px;
+}
+main form button:hover{
+    background-color: #ffffff;
+    color: red;
+    border: 2px solid #d94d4d;
+
+}
+
 .btnn-comprar.nao {
     cursor: not-allowed;
     opacity: 0.5;
@@ -80,17 +98,27 @@ main {
     font-size: 1em;
 }
 
-.btnn-comprar {
-    width: 100%;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2em;
+div .btnn-comprar  {
+
+    height: 40px;
     margin-top: 10px;
-    text-align: center;
-    text-decoration: none;
+    border: none;
+    background-color: #d94d4d;
+    color: white;
+    transition: all 0.3s ease-in-out 0.1s;
+    border-radius: 15px;
 }
+
+
+
+.btnn-comprar:hover{
+    background-color: #ffffff;
+    color: red;
+    border: 3px solid #d94d4d;
+
+}
+
+
 
 .bt-comprar:hover {
     background-color: white;
@@ -126,7 +154,7 @@ main {
     .cart1{
 
         width: 600px;
-        height: 800px;
+        height: 720px;
         background: white;
         padding: 20px;
         border-radius: 8px;
@@ -135,6 +163,19 @@ main {
         margin-right: auto;
         overflow: scroll;
     }
+
+    main form button {
+        width: 100px;
+        height: 30px;
+        margin-top: 10px;
+        border: #d94d4d;
+        background-color: #d94d4d;
+        color: white;
+        transition: all 0.3s ease-in-out 0.1s;
+        border-radius: 15px;
+    }
+
+
 
 }
 
@@ -327,18 +368,9 @@ header i{
 
 }
 
-footer {
-    display: grid;
-    justify-content: space-around;
-    height: 58px;
-    align-items: center;
-    color: white;
-    background-color: #D94D4D;
-}
 
-p{
+main p{
     display: grid;
-    justify-content: space-around;
     align-items: center;
     height: 58px;
 
@@ -373,4 +405,20 @@ header img{
 
 button i{
     color: black;
+}
+
+footer {
+    display: grid;
+    justify-content: space-around;
+    height: 58px;
+    align-items: center;
+    color: white;
+    background-color: #D94D4D;
+}
+
+footer p{
+    display: grid;
+    justify-content: space-around;
+    align-items: center;
+
 }

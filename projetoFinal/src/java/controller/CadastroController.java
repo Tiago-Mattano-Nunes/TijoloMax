@@ -16,7 +16,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Dao.CadastroDAO;
+import model.DAO.CadastroDAO;
 import model.bean.Cadastro;
 import model.bean.Categorias;
 
@@ -33,6 +33,8 @@ public class CadastroController extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        //encaminha a requisicao pra pagina especificada
         String nextPage = "/WEB-INF/jsp/cadastro.jsp";
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
         dispatcher.forward(request, response);
@@ -43,12 +45,14 @@ public class CadastroController extends HttpServlet {
             throws ServletException, IOException {
         String action = request.getServletPath();
         if (action.equals("/logar")) {
-            logar(request, response);
+            logar(request, response); //preocessa requisicao
         } else {
             processRequest(request, response);
         }
     }
 
+    
+    //chama os dados do login
     protected void logar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Cadastro usuario = new Cadastro();
@@ -84,6 +88,8 @@ public class CadastroController extends HttpServlet {
         }
     }
 
+    
+    //faz requisicao e cria cadastro do usuário
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

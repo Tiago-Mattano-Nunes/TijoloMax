@@ -16,14 +16,14 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Dao.CadastroDAO;
-import model.Dao.CatDAO;
-import model.Dao.ProdutosDAO;
+import model.DAO.CadastroDAO;
+import model.DAO.CatDAO;
+import model.DAO.ProdutosDAO;
 import model.bean.Cadastro;
 import model.bean.Categorias;
 import model.bean.Produtos;
 
-@WebServlet(urlPatterns = "/achar")
+@WebServlet(urlPatterns = {"/achar", "/adms"})
 @MultipartConfig
 public class IndexController extends HttpServlet {
 
@@ -38,8 +38,7 @@ public class IndexController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
+
         ProdutosDAO produto = new ProdutosDAO();
         List<Produtos> produtos = produto.ler();
         request.setAttribute("produtos", produtos);
@@ -47,11 +46,13 @@ public class IndexController extends HttpServlet {
         CatDAO categoria = new CatDAO();
         List<Categorias> categorias = categoria.leia();
         request.setAttribute("categoria", categorias);
-        
+
         Cadastro cadastro = new Cadastro();
         CadastroDAO cadastrodao = new CadastroDAO();
 
         Cookie[] cookies = request.getCookies();
+        //verifica se está logado recupera as informacoes do usuario
+        //verifica se tem um cookie chamado loginManter
         for (Cookie cookie : cookies) {
             if (cookie.getName().equals("loginManter")) {
 
@@ -94,6 +95,8 @@ public class IndexController extends HttpServlet {
         String action = request.getServletPath();
         if (action.equals("/achar")) {
             achar(request, response);
+        } else if (action.equals("/adms")) {
+            entrar(request, response);
         } else {
             processRequest(request, response);
         }
@@ -111,6 +114,23 @@ public class IndexController extends HttpServlet {
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
+    }
+
+    protected void entrar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        PrintWriter sout = response.getWriter();
+        Cadastro cadastro = new Cadastro();
+        CadastroDAO cadastrodao = new CadastroDAO();
+        cadastro.setIdUsuario(Integer.parseInt(request.getParameter("chamar")));
+
+        if (cadastro.getIdUsuario() == 1) {
+             response.sendRedirect("./TelaADM");
+        } else {
+
+          
+            response.sendRedirect("./Index");
+        }
+
     }
 
 }
